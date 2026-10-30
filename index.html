@@ -1,0 +1,2279 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="AeroRun builds ultra-light running gear for hot, humid climates. ZoneVent knit, bonded seams, zero cling. Made for 85% humidity.">
+<title>AeroRun | Lightweight running gear for hot, humid climates</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%23F64F22'/%3E%3Cpath d='M7 24 L16 8 L25 24 M11.5 24 L16 16 L20.5 24' fill='none' stroke='%23181711' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Geist:wght@300..700&family=Geist+Mono:wght@400..600&display=swap" rel="stylesheet">
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('aerorun-theme');
+      var dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', saved || (dark ? 'dark' : 'light'));
+    } catch (e) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  })();
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          paper: 'rgb(var(--paper) / <alpha-value>)',
+          surface: 'rgb(var(--surface) / <alpha-value>)',
+          surface2: 'rgb(var(--surface-2) / <alpha-value>)',
+          ink: 'rgb(var(--ink) / <alpha-value>)',
+          inksoft: 'rgb(var(--ink-soft) / <alpha-value>)',
+          muted: 'rgb(var(--muted) / <alpha-value>)',
+          line: 'rgb(var(--line) / <alpha-value>)',
+          accent: 'rgb(var(--accent) / <alpha-value>)',
+          accentsoft: 'rgb(var(--accent-soft) / <alpha-value>)',
+          accentink: 'rgb(var(--accent-ink) / <alpha-value>)',
+          panel: 'rgb(var(--panel) / <alpha-value>)',
+          panelink: 'rgb(var(--panel-ink) / <alpha-value>)',
+          panelmuted: 'rgb(var(--panel-muted) / <alpha-value>)',
+          panelline: 'rgb(var(--panel-line) / <alpha-value>)',
+          success: 'rgb(var(--success) / <alpha-value>)'
+        },
+        fontFamily: {
+          display: ['Archivo', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          sans: ['Geist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace']
+        }
+      }
+    }
+  };
+</script>
+<style>
+  :root {
+    --paper: 243 244 238;
+    --surface: 233 235 226;
+    --surface-2: 224 227 216;
+    --ink: 19 22 17;
+    --ink-soft: 55 62 51;
+    --muted: 101 108 95;
+    --line: 208 213 199;
+    --accent: 246 79 34;
+    --accent-soft: 255 232 223;
+    --accent-ink: 24 17 11;
+    --panel: 20 24 19;
+    --panel-ink: 239 241 232;
+    --panel-muted: 154 162 147;
+    --panel-line: 53 60 48;
+    --success: 30 105 72;
+  }
+
+  [data-theme="dark"] {
+    --paper: 13 16 13;
+    --surface: 21 25 20;
+    --surface-2: 28 33 26;
+    --ink: 237 239 230;
+    --ink-soft: 199 205 192;
+    --muted: 146 154 139;
+    --line: 44 50 40;
+    --accent: 255 98 52;
+    --accent-soft: 54 31 22;
+    --accent-ink: 22 16 10;
+    --panel: 23 28 21;
+    --panel-ink: 238 240 231;
+    --panel-muted: 151 159 144;
+    --panel-line: 60 68 54;
+    --success: 95 181 136;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 68px; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: rgb(var(--paper));
+    color: rgb(var(--ink));
+    font-family: 'Geist', ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  [data-theme="dark"] { color-scheme: dark; }
+  [data-theme="light"] { color-scheme: light; }
+  ::selection { background: rgb(var(--accent)); color: rgb(var(--accent-ink)); }
+  :focus-visible { outline: 2px solid rgb(var(--accent)); outline-offset: 3px; }
+  a { color: inherit; text-decoration: none; }
+  button, input { font: inherit; }
+  button { cursor: pointer; }
+  img { display: block; }
+
+  .display {
+    font-family: 'Archivo', ui-sans-serif, sans-serif;
+    font-variation-settings: "wdth" 112, "wght" 760;
+    letter-spacing: -0.04em;
+  }
+  .display-tight { line-height: 0.96; }
+  .mono-label {
+    font-family: 'Geist Mono', ui-monospace, monospace;
+    font-size: 10px;
+    line-height: 1.2;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Geist Mono', ui-monospace, monospace;
+    font-size: 10px;
+    line-height: 1;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgb(var(--muted));
+  }
+  .eyebrow::before {
+    content: "";
+    width: 18px;
+    height: 1px;
+    background: rgb(var(--accent));
+  }
+
+  .wrap { width: 100%; max-width: 1440px; margin: 0 auto; padding-left: 20px; padding-right: 20px; }
+  @media (min-width: 1024px) { .wrap { padding-left: 40px; padding-right: 40px; } }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 46px;
+    padding: 0 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    white-space: nowrap;
+    transition: background-color .2s ease, color .2s ease, border-color .2s ease, transform .15s ease, box-shadow .2s ease;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn:disabled { opacity: .65; cursor: wait; }
+  .btn-primary { background: rgb(var(--accent)); color: rgb(var(--accent-ink)); }
+  .btn-primary:hover { background: rgb(var(--accent) / .88); }
+  .btn-ink { background: rgb(var(--ink)); color: rgb(var(--paper)); }
+  .btn-ink:hover { background: rgb(var(--ink) / .86); }
+  .btn-outline { border-color: rgb(var(--line)); color: rgb(var(--ink)); background: transparent; }
+  .btn-outline:hover { background: rgb(var(--surface)); border-color: rgb(var(--ink) / .24); }
+  .btn-sm { height: 38px; padding: 0 14px; font-size: 12.5px; gap: 7px; }
+
+  .icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: rgb(var(--ink));
+    background: transparent;
+    transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+  }
+  .icon-btn:hover { background: rgb(var(--surface)); border-color: rgb(var(--line)); }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 26px;
+    padding: 0 9px;
+    border: 1px solid rgb(var(--line));
+    border-radius: 999px;
+    font-family: 'Geist Mono', ui-monospace, monospace;
+    font-size: 9.5px;
+    line-height: 1;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: rgb(var(--ink-soft));
+    white-space: nowrap;
+  }
+  .chip-accent { border-color: rgb(var(--accent) / .35); background: rgb(var(--accent-soft)); color: rgb(var(--ink)); }
+
+  .panel {
+    border: 1px solid rgb(var(--line));
+    border-radius: 4px;
+    background: rgb(var(--paper));
+  }
+  .panel-surface { background: rgb(var(--surface)); }
+
+  .nav-link {
+    position: relative;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgb(var(--ink-soft));
+    transition: color .2s ease;
+    padding: 4px 0;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 100%;
+    bottom: 0;
+    height: 1px;
+    background: rgb(var(--accent));
+    transition: right .25s cubic-bezier(.16,1,.3,1);
+  }
+  .nav-link:hover { color: rgb(var(--ink)); }
+  .nav-link:hover::after { right: 0; }
+
+  .logo-mark {
+    display: grid;
+    place-items: center;
+    width: 27px;
+    height: 27px;
+    border-radius: 3px;
+    background: rgb(var(--accent));
+    color: rgb(var(--accent-ink));
+    flex: none;
+  }
+  .logo-word {
+    font-family: 'Archivo', sans-serif;
+    font-variation-settings: "wdth" 118, "wght" 800;
+    letter-spacing: -0.045em;
+    font-size: 21px;
+    line-height: 1;
+  }
+
+  .photo-tone { filter: grayscale(.7) saturate(.75) contrast(1.06) brightness(.94); }
+  [data-theme="dark"] .photo-tone { filter: grayscale(.8) saturate(.65) contrast(1.08) brightness(.72); }
+  .photo-frame { background: radial-gradient(120% 100% at 30% 15%, #3a4a3d 0%, #1a221c 55%, #101510 100%); }
+
+  .grain {
+    position: fixed;
+    inset: 0;
+    z-index: 55;
+    pointer-events: none;
+    opacity: .035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  }
+
+  .bar { height: 9px; border-radius: 2px; }
+  .metric-bar { transition: width .6s cubic-bezier(.16,1,.3,1); }
+
+  .product-card { transition: transform .3s cubic-bezier(.16,1,.3,1), border-color .3s ease; }
+  .product-card:hover { transform: translateY(-3px); }
+  .product-card:hover .garment-svg { transform: scale(1.035) rotate(-.4deg); }
+  .garment-svg { transition: transform .5s cubic-bezier(.16,1,.3,1); }
+  .product-visual {
+    background: radial-gradient(120% 95% at 50% 12%, rgb(var(--surface-2)) 0%, rgb(var(--surface)) 62%, rgb(var(--surface-2) / .7) 100%);
+  }
+
+  .garment-svg {
+    --g1: #3f4a4a;
+    --g2: #293333;
+    --g3: #232c2c;
+    --g4: #e6e9e3;
+  }
+  .garment-svg use { pointer-events: none; }
+
+  .swatch {
+    position: relative;
+    width: 17px;
+    height: 17px;
+    border-radius: 999px;
+    border: 1px solid rgb(var(--ink) / .18);
+    box-shadow: inset 0 0 0 2px rgb(var(--paper) / .35);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .swatch:hover { transform: scale(1.12); }
+  .swatch.is-active { box-shadow: 0 0 0 1.5px rgb(var(--paper)), 0 0 0 3px rgb(var(--ink)); }
+  .wish { color: rgb(var(--ink)); }
+  .wish.is-wished { color: rgb(var(--accent)); }
+  .wish.is-wished svg { fill: currentColor; }
+
+  .filter-pill {
+    height: 34px;
+    padding: 0 14px;
+    border: 1px solid rgb(var(--line));
+    border-radius: 999px;
+    background: transparent;
+    color: rgb(var(--ink-soft));
+    font-size: 12px;
+    font-weight: 500;
+    transition: all .2s ease;
+    white-space: nowrap;
+  }
+  .filter-pill:hover { border-color: rgb(var(--ink) / .3); color: rgb(var(--ink)); }
+  .filter-pill[aria-pressed="true"] { background: rgb(var(--ink)); border-color: rgb(var(--ink)); color: rgb(var(--paper)); }
+
+  .range { -webkit-appearance: none; appearance: none; width: 100%; height: 2px; border-radius: 999px; background: linear-gradient(90deg, rgb(var(--accent)) 0 var(--pct, 50%), rgb(var(--line)) var(--pct, 50%) 100%); outline-offset: 8px; }
+  .range::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 999px; background: rgb(var(--ink)); border: 3px solid rgb(var(--paper)); box-shadow: 0 0 0 1px rgb(var(--ink) / .35), 0 2px 6px rgb(var(--ink) / .18); cursor: grab; }
+  .range::-webkit-slider-thumb:active { cursor: grabbing; transform: scale(.96); }
+  .range::-moz-range-thumb { width: 16px; height: 16px; border-radius: 999px; background: rgb(var(--ink)); border: 3px solid rgb(var(--paper)); box-shadow: 0 0 0 1px rgb(var(--ink) / .35); cursor: grab; }
+  .range::-moz-range-track { background: transparent; }
+
+  .fit-option {
+    position: relative;
+    display: block;
+    border: 1px solid rgb(var(--line));
+    border-radius: 4px;
+    background: rgb(var(--paper));
+    padding: 11px 12px;
+    cursor: pointer;
+    transition: border-color .2s ease, background-color .2s ease;
+  }
+  .fit-option:hover { border-color: rgb(var(--ink) / .3); }
+  .fit-option:has(input:checked) { border-color: rgb(var(--accent)); background: rgb(var(--accent-soft)); }
+  .fit-option:has(input:focus-visible) { outline: 2px solid rgb(var(--accent)); outline-offset: 2px; }
+  .fit-check { opacity: 0; transform: scale(.8); transition: opacity .2s ease, transform .2s ease; }
+  .fit-option:has(input:checked) .fit-check { opacity: 1; transform: none; }
+
+  .acc { border: 1px solid rgb(var(--line)); border-radius: 4px; background: rgb(var(--paper)); overflow: hidden; }
+  .acc + .acc { margin-top: 8px; }
+  .acc-trigger { display: flex; width: 100%; align-items: center; gap: 12px; text-align: left; padding: 13px 14px; background: transparent; border: 0; color: rgb(var(--ink)); }
+  .acc-trigger:hover { background: rgb(var(--surface) / .55); }
+  .acc-icon { transition: transform .3s cubic-bezier(.16,1,.3,1), color .2s ease; color: rgb(var(--muted)); flex: none; }
+  .acc.open .acc-icon { transform: rotate(45deg); color: rgb(var(--accent)); }
+  .acc-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .38s cubic-bezier(.16,1,.3,1); }
+  .acc-body > div { overflow: hidden; }
+  .acc.open .acc-body { grid-template-rows: 1fr; }
+
+  .hotspot-dot {
+    display: grid;
+    place-items: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    background: rgb(var(--accent));
+    color: rgb(var(--accent-ink));
+    border: 2px solid rgb(var(--surface));
+    font-family: 'Geist Mono', monospace;
+    font-size: 9px;
+    font-weight: 600;
+    line-height: 1;
+    box-shadow: 0 2px 8px rgb(0 0 0 / .18);
+    transition: transform .2s ease;
+  }
+  .hotspot-dot:hover { transform: scale(1.12); }
+  .hotspot-label {
+    display: none;
+    width: 148px;
+    border: 1px solid rgb(var(--line));
+    background: rgb(var(--paper) / .96);
+    border-radius: 3px;
+    padding: 7px 9px;
+    box-shadow: 0 8px 24px rgb(20 24 19 / .08);
+    backdrop-filter: blur(8px);
+  }
+  @media (min-width: 768px) { .hotspot-label { display: block; } }
+
+  .pay-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    height: 42px;
+    border: 1px solid rgb(var(--line));
+    border-radius: 3px;
+    background: rgb(var(--paper));
+    color: rgb(var(--ink));
+    font-size: 12px;
+    font-weight: 600;
+    transition: border-color .2s ease, background-color .2s ease, transform .15s ease;
+  }
+  .pay-btn:hover { border-color: rgb(var(--ink) / .35); background: rgb(var(--surface)); }
+  .pay-btn:active { transform: translateY(1px); }
+
+  .spinner {
+    width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    border: 2px solid rgb(var(--ink) / .18);
+    border-top-color: rgb(var(--accent));
+    animation: spin .8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .toast {
+    position: fixed;
+    left: 50%;
+    bottom: 22px;
+    z-index: 50;
+    transform: translate(-50%, 14px);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 280px;
+    max-width: calc(100vw - 32px);
+    padding: 11px 14px;
+    border-radius: 4px;
+    background: rgb(var(--ink));
+    color: rgb(var(--paper));
+    box-shadow: 0 14px 44px rgb(0 0 0 / .24);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease, transform .25s cubic-bezier(.16,1,.3,1);
+  }
+  .toast.show { opacity: 1; transform: translate(-50%, 0); }
+  .toast-icon { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 999px; background: rgb(var(--accent)); color: rgb(var(--accent-ink)); flex: none; }
+
+  [data-reveal] { opacity: 0; transform: translateY(16px); transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); transition-delay: var(--d, 0ms); }
+  [data-reveal].in { opacity: 1; transform: none; }
+
+  .rise { opacity: 0; transform: translateY(18px); animation: rise .8s cubic-bezier(.16,1,.3,1) forwards; animation-delay: var(--d, 0ms); }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+    [data-reveal], .rise { opacity: 1 !important; transform: none !important; }
+  }
+
+  .theme-sun { display: none; }
+  [data-theme="dark"] .theme-sun { display: block; }
+  [data-theme="dark"] .theme-moon { display: none; }
+  .menu-close-icon { display: none; }
+  .menu-open.is-open .menu-open-icon { display: none; }
+  .menu-open.is-open .menu-close-icon { display: block; }
+
+  .mobile-menu { background: rgb(var(--paper)); }
+
+  .product-visual .meta-code { position: absolute; left: 12px; bottom: 10px; font-family: 'Geist Mono', monospace; font-size: 8.5px; letter-spacing: .12em; text-transform: uppercase; color: rgb(var(--muted)); opacity: .85; }
+  .macro-tile { background: rgb(var(--surface-2)); position: relative; overflow: hidden; }
+
+  .cart-thumb { background: #E4E7DC; }
+  [data-theme="dark"] .cart-thumb { background: #D6DACD; }
+  [data-theme="dark"] .cart-thumb .garment-svg { opacity: .92; }
+
+  .num { font-family: 'Geist Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+  .hairline { border-color: rgb(var(--line)); }
+
+  .mobile-menu[hidden] { display: none; }
+  .sd { scrollbar-width: none; }
+  .sd::-webkit-scrollbar { display: none; }
+</style>
+<noscript>
+  <style>
+    [data-reveal], .rise { opacity: 1 !important; transform: none !important; }
+  </style>
+</noscript>
+</head>
+<body class="bg-paper text-ink">
+
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded focus:bg-ink focus:px-4 focus:py-3 focus:text-sm focus:text-paper">Skip to content</a>
+
+<svg class="pointer-events-none absolute h-0 w-0 overflow-hidden" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="shade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#000" stop-opacity="0.2"/>
+      <stop offset="0.22" stop-color="#000" stop-opacity="0"/>
+      <stop offset="0.78" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0.22"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.22"/>
+      <stop offset="0.45" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0.08"/>
+    </linearGradient>
+    <pattern id="knit" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <circle cx="1.5" cy="1.5" r="0.5" fill="#fff" opacity="0.1"/>
+      <circle cx="4.5" cy="4.5" r="0.5" fill="#000" opacity="0.13"/>
+    </pattern>
+    <pattern id="mesh" width="6" height="6" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="1.15" fill="#0b0f0b" opacity="0.38"/>
+      <path d="M0 6 L6 0" stroke="#fff" stroke-opacity="0.16" stroke-width="0.7"/>
+    </pattern>
+    <filter id="blur6" x="-30%" y="-60%" width="160%" height="220%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+
+    <symbol id="g-tee" viewBox="0 0 400 440">
+      <ellipse cx="200" cy="408" rx="116" ry="9" fill="#000" opacity="0.14" filter="url(#blur6)"/>
+      <path d="M148 58 L112 68 L44 104 L20 194 L66 222 L96 170 L96 374 C96 384 102 390 112 390 L288 390 C298 390 304 384 304 374 L304 170 L334 222 L380 194 L356 104 L288 68 L252 58 C240 86 220 98 200 98 C180 98 160 86 148 58 Z" fill="var(--g1)" stroke="var(--g3)" stroke-width="1.4"/>
+      <path d="M148 58 L112 68 L44 104 L20 194 L66 222 L96 170 L96 374 C96 384 102 390 112 390 L288 390 C298 390 304 384 304 374 L304 170 L334 222 L380 194 L356 104 L288 68 L252 58 C240 86 220 98 200 98 C180 98 160 86 148 58 Z" fill="url(#knit)"/>
+      <path d="M148 58 L112 68 L44 104 L20 194 L66 222 L96 170 L96 374 C96 384 102 390 112 390 L288 390 C298 390 304 384 304 374 L304 170 L334 222 L380 194 L356 104 L288 68 L252 58 C240 86 220 98 200 98 C180 98 160 86 148 58 Z" fill="url(#shade)"/>
+      <path d="M148 58 L112 68 L44 104 L20 194 L66 222 L96 170 L96 374 C96 384 102 390 112 390 L288 390 C298 390 304 384 304 374 L304 170 L334 222 L380 194 L356 104 L288 68 L252 58 C240 86 220 98 200 98 C180 98 160 86 148 58 Z" fill="url(#sheen)" opacity="0.5"/>
+      <path d="M96 214 L140 228 L136 330 L99 344 Z" fill="url(#mesh)" opacity="0.85" stroke="var(--g3)" stroke-opacity="0.35"/>
+      <path d="M304 214 L260 228 L264 330 L301 344 Z" fill="url(#mesh)" opacity="0.85" stroke="var(--g3)" stroke-opacity="0.35"/>
+      <path d="M112 68 L148 58 M288 68 L252 58" stroke="var(--g4)" stroke-opacity="0.26" stroke-width="1" stroke-dasharray="2 3"/>
+      <path d="M96 170 C110 186 111 200 112 214 M304 170 C290 186 289 200 288 214" stroke="var(--g4)" stroke-opacity="0.2" stroke-width="1" stroke-dasharray="2 3" fill="none"/>
+      <path d="M100 372 C150 379 250 379 300 372" stroke="var(--g4)" stroke-opacity="0.24" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
+      <path d="M105 228 L105 366 M295 228 L295 366" stroke="var(--g3)" stroke-opacity="0.3" stroke-width="1"/>
+      <path d="M148 58 C160 86 180 98 200 98 C220 98 240 86 252 58 C232 47 168 47 148 58 Z" fill="var(--g3)" opacity="0.92"/>
+      <path d="M148 58 C160 86 180 98 200 98 C220 98 240 86 252 58" fill="none" stroke="var(--g4)" stroke-opacity="0.38" stroke-width="2.4"/>
+      <text x="200" y="150" text-anchor="middle" font-family="Archivo, sans-serif" font-size="7" font-weight="700" letter-spacing="2.4" fill="var(--g4)" opacity="0.72">AERORUN</text>
+      <path d="M70 210 L86 216" stroke="var(--g4)" stroke-opacity="0.2" stroke-width="1"/>
+      <path d="M330 210 L314 216" stroke="var(--g4)" stroke-opacity="0.2" stroke-width="1"/>
+    </symbol>
+
+    <symbol id="g-tee-back" viewBox="0 0 400 440">
+      <ellipse cx="200" cy="408" rx="116" ry="9" fill="#000" opacity="0.14" filter="url(#blur6)"/>
+      <path d="M148 58 L112 68 L44 104 L20 194 L66 222 L96 170 L96 374 C96 384 102 390 112 390 L288 390 C298 390 304 384 304 374 L304 170 L334 222 L380 194 L356 104 L288 68 L252 58 C238 78 220 86 200 86 C180 86 162 78 148 58 Z" fill="var(--g1)" stroke="var(--g3)" stroke-width="1.4"/>
+      <path d="M148 58 L112 68 L44 104 L20 194 L66 222 L96 170 L96 374 C96 384 102 390 112 390 L288 390 C298 390 304 384 304 374 L304 170 L334 222 L380 194 L356 104 L288 68 L252 58 C238 78 220 86 200 86 C180 86 162 78 148 58 Z" fill="url(#knit)"/>
+      <path d="M148 58 L112 68 L44 104 L20 194 L66 222 L96 170 L96 374 C96 384 102 390 112 390 L288 390 C298 390 304 384 304 374 L304 170 L334 222 L380 194 L356 104 L288 68 L252 58 C238 78 220 86 200 86 C180 86 162 78 148 58 Z" fill="url(#shade)"/>
+      <path d="M148 58 L112 68 L44 104 L20 194 L66 222 L96 170 L96 374 C96 384 102 390 112 390 L288 390 C298 390 304 384 304 374 L304 170 L334 222 L380 194 L356 104 L288 68 L252 58 C238 78 220 86 200 86 C180 86 162 78 148 58 Z" fill="url(#sheen)" opacity="0.5"/>
+      <path d="M132 84 C164 98 236 98 268 84 L276 166 C236 180 164 180 124 166 Z" fill="url(#mesh)" opacity="0.9" stroke="var(--g3)" stroke-opacity="0.4"/>
+      <path d="M132 84 C164 98 236 98 268 84" fill="none" stroke="var(--g4)" stroke-opacity="0.35" stroke-width="1" stroke-dasharray="3 3"/>
+      <path d="M200 88 L200 178" stroke="var(--g4)" stroke-opacity="0.22" stroke-width="1" stroke-dasharray="2 4"/>
+      <path d="M96 214 L140 228 L136 330 L99 344 Z" fill="url(#mesh)" opacity="0.6"/>
+      <path d="M304 214 L260 228 L264 330 L301 344 Z" fill="url(#mesh)" opacity="0.6"/>
+      <path d="M100 372 C150 379 250 379 300 372" stroke="var(--g4)" stroke-opacity="0.24" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
+      <path d="M148 58 C158 78 180 86 200 86 C220 86 242 78 252 58 C232 48 168 48 148 58 Z" fill="var(--g3)" opacity="0.92"/>
+      <path d="M148 58 C158 78 180 86 200 86 C220 86 242 78 252 58" fill="none" stroke="var(--g4)" stroke-opacity="0.38" stroke-width="2.4"/>
+      <text x="200" y="330" text-anchor="middle" font-family="Archivo, sans-serif" font-size="7" font-weight="700" letter-spacing="2.4" fill="var(--g4)" opacity="0.65">AERORUN</text>
+      <path d="M96 170 C110 186 111 200 112 214 M304 170 C290 186 289 200 288 214" stroke="var(--g4)" stroke-opacity="0.18" stroke-width="1" stroke-dasharray="2 3" fill="none"/>
+    </symbol>
+
+    <symbol id="g-shorts" viewBox="0 0 400 440">
+      <ellipse cx="200" cy="366" rx="112" ry="9" fill="#000" opacity="0.14" filter="url(#blur6)"/>
+      <path d="M120 88 L280 88 L300 158 L306 332 L238 340 L228 232 L200 228 L172 232 L162 340 L94 332 L100 158 Z" fill="var(--g1)" stroke="var(--g3)" stroke-width="1.4"/>
+      <path d="M120 88 L280 88 L300 158 L306 332 L238 340 L228 232 L200 228 L172 232 L162 340 L94 332 L100 158 Z" fill="url(#knit)"/>
+      <path d="M120 88 L280 88 L300 158 L306 332 L238 340 L228 232 L200 228 L172 232 L162 340 L94 332 L100 158 Z" fill="url(#shade)"/>
+      <path d="M120 88 L280 88 L300 158 L306 332 L238 340 L228 232 L200 228 L172 232 L162 340 L94 332 L100 158 Z" fill="url(#sheen)" opacity="0.5"/>
+      <path d="M120 88 L280 88 L283 116 L117 116 Z" fill="var(--g3)" opacity="0.9"/>
+      <path d="M117 116 L283 116" stroke="var(--g4)" stroke-opacity="0.24" stroke-width="1" stroke-dasharray="3 3"/>
+      <path d="M104 168 L130 178 L128 302 L101 308 Z" fill="url(#mesh)" opacity="0.7"/>
+      <path d="M296 168 L270 178 L272 302 L299 308 Z" fill="url(#mesh)" opacity="0.7"/>
+      <path d="M200 118 L200 162" stroke="var(--g4)" stroke-opacity="0.2" stroke-width="1" stroke-dasharray="2 3"/>
+      <path d="M252 140 L292 176" stroke="var(--g4)" stroke-opacity="0.45" stroke-width="2"/>
+      <rect x="286" y="172" width="10" height="4" rx="1" fill="var(--g4)" opacity="0.55" transform="rotate(41 291 174)"/>
+      <path d="M162 326 L238 326 M306 300 L306 332 L286 335 M94 300 L94 332 L114 335" stroke="var(--g4)" stroke-opacity="0.22" stroke-width="1" fill="none" stroke-dasharray="3 3"/>
+      <path d="M192 101 C184 111 180 121 184 130 M208 101 C216 111 220 121 216 130" stroke="var(--g4)" stroke-opacity="0.55" stroke-width="1.3" fill="none"/>
+      <circle cx="200" cy="100" r="3" fill="var(--g4)" opacity="0.55"/>
+      <text x="150" y="292" text-anchor="middle" font-family="Archivo, sans-serif" font-size="6" font-weight="700" letter-spacing="1.8" fill="var(--g4)" opacity="0.6">AERORUN</text>
+      <path d="M100 158 L300 158" stroke="var(--g3)" stroke-opacity="0.25" stroke-width="1"/>
+    </symbol>
+
+    <symbol id="g-singlet" viewBox="0 0 400 440">
+      <ellipse cx="200" cy="408" rx="108" ry="9" fill="#000" opacity="0.14" filter="url(#blur6)"/>
+      <path d="M152 58 L124 66 C108 108 96 158 88 212 L74 372 C74 383 80 390 94 390 L306 390 C320 390 326 383 326 372 L312 212 C304 158 292 108 276 66 L248 58 C240 104 222 122 200 122 C178 122 160 104 152 58 Z" fill="var(--g1)" stroke="var(--g3)" stroke-width="1.4"/>
+      <path d="M152 58 L124 66 C108 108 96 158 88 212 L74 372 C74 383 80 390 94 390 L306 390 C320 390 326 383 326 372 L312 212 C304 158 292 108 276 66 L248 58 C240 104 222 122 200 122 C178 122 160 104 152 58 Z" fill="url(#knit)"/>
+      <path d="M152 58 L124 66 C108 108 96 158 88 212 L74 372 C74 383 80 390 94 390 L306 390 C320 390 326 383 326 372 L312 212 C304 158 292 108 276 66 L248 58 C240 104 222 122 200 122 C178 122 160 104 152 58 Z" fill="url(#shade)"/>
+      <path d="M152 58 L124 66 C108 108 96 158 88 212 L74 372 C74 383 80 390 94 390 L306 390 C320 390 326 383 326 372 L312 212 C304 158 292 108 276 66 L248 58 C240 104 222 122 200 122 C178 122 160 104 152 58 Z" fill="url(#sheen)" opacity="0.5"/>
+      <path d="M88 244 L114 252 L110 340 L78 350 Z" fill="url(#mesh)" opacity="0.8"/>
+      <path d="M312 244 L286 252 L290 340 L322 350 Z" fill="url(#mesh)" opacity="0.8"/>
+      <path d="M124 66 C108 108 96 158 88 212 M276 66 C292 108 304 158 312 212" stroke="var(--g4)" stroke-opacity="0.3" stroke-width="2.2" fill="none"/>
+      <path d="M100 372 C150 380 250 380 300 372" stroke="var(--g4)" stroke-opacity="0.24" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
+      <path d="M152 58 C160 104 178 122 200 122 C222 122 240 104 248 58 C230 48 170 48 152 58 Z" fill="var(--g3)" opacity="0.92"/>
+      <path d="M152 58 C160 104 178 122 200 122 C222 122 240 104 248 58" fill="none" stroke="var(--g4)" stroke-opacity="0.38" stroke-width="2.2"/>
+      <text x="200" y="186" text-anchor="middle" font-family="Archivo, sans-serif" font-size="7" font-weight="700" letter-spacing="2.4" fill="var(--g4)" opacity="0.7">AERORUN</text>
+      <path d="M94 386 L94 372 M306 386 L306 372" stroke="var(--g4)" stroke-opacity="0.2" stroke-width="1"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="fixed inset-x-0 top-0 z-40 border-b border-line bg-paper/85 backdrop-blur-xl">
+  <div class="wrap flex h-[68px] items-center gap-6">
+    <a href="#top" class="flex items-center gap-2.5" aria-label="AeroRun home">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 18.5 L12 5.5 L20 18.5"/>
+          <path d="M8.4 18.5 L12 12.2 L15.6 18.5"/>
+        </svg>
+      </span>
+      <span class="logo-word">AeroRun</span>
+    </a>
+
+    <nav class="hidden items-center gap-7 lg:flex" aria-label="Primary">
+      <a href="#shop" class="nav-link">Shop</a>
+      <a href="#technology" class="nav-link">Technology</a>
+      <a href="#fit-finder" class="nav-link">Fit Finder</a>
+      <a href="#reviews" class="nav-link">Reviews</a>
+    </nav>
+
+    <div class="ml-auto flex items-center gap-1.5">
+      <form id="searchForm" class="hidden h-9 items-center gap-2 rounded-[3px] border border-line bg-surface/60 pl-2.5 pr-3 xl:flex" role="search">
+        <i data-lucide="search" class="h-3.5 w-3.5 text-muted" aria-hidden="true"></i>
+        <input id="searchInput" type="search" name="q" placeholder="Search gear" aria-label="Search gear" class="w-[132px] bg-transparent text-[12px] text-ink placeholder:text-muted focus:outline-none">
+        <span class="font-mono text-[9px] text-muted">/</span>
+      </form>
+
+      <button type="button" class="icon-btn theme-toggle" aria-label="Switch to dark theme">
+        <i data-lucide="moon" class="theme-moon h-[18px] w-[18px]"></i>
+        <i data-lucide="sun" class="theme-sun h-[18px] w-[18px]"></i>
+      </button>
+
+      <button type="button" id="bagBtn" class="icon-btn relative" aria-label="Open bag, 2 items">
+        <i data-lucide="shopping-bag" class="h-[19px] w-[19px]"></i>
+        <span id="bagCount" class="absolute -right-0.5 -top-0.5 grid h-[17px] min-w-[17px] place-items-center rounded-full bg-accent px-1 text-[9px] font-semibold leading-none text-accentink num">2</span>
+      </button>
+
+      <button type="button" id="menuBtn" class="icon-btn menu-open lg:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <i data-lucide="menu" class="menu-open-icon h-5 w-5"></i>
+        <i data-lucide="x" class="menu-close-icon h-5 w-5"></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div id="mobileMenu" class="mobile-menu fixed inset-x-0 bottom-0 top-[68px] z-[45] hidden overflow-y-auto border-t border-line lg:hidden">
+  <div class="wrap flex min-h-full flex-col py-8">
+    <form id="mobileSearchForm" class="flex h-11 items-center gap-2 rounded-[3px] border border-line bg-surface/70 px-3" role="search">
+      <i data-lucide="search" class="h-4 w-4 text-muted" aria-hidden="true"></i>
+      <input id="mobileSearchInput" type="search" name="q" placeholder="Search gear" aria-label="Search gear" class="w-full bg-transparent text-sm text-ink placeholder:text-muted focus:outline-none">
+    </form>
+
+    <nav class="mt-8 flex flex-col" aria-label="Mobile primary">
+      <a href="#shop" class="mobile-link display border-b border-line py-4 text-[34px] leading-none">Shop</a>
+      <a href="#technology" class="mobile-link display border-b border-line py-4 text-[34px] leading-none">Technology</a>
+      <a href="#fit-finder" class="mobile-link display border-b border-line py-4 text-[34px] leading-none">Fit Finder</a>
+      <a href="#reviews" class="mobile-link display border-b border-line py-4 text-[34px] leading-none">Reviews</a>
+    </nav>
+
+    <a href="#shop" class="mobile-link btn btn-primary mt-8 w-full">
+      Shop ZoneVent Series
+      <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+    </a>
+    <p class="mt-5 font-mono text-[10px] uppercase tracking-[0.14em] text-muted">Free delivery over ₹1,500 / 30-day running trial</p>
+    <p class="mt-auto pt-10 text-[12px] text-muted">Lightweight gear for hot, humid runs. Made in India.</p>
+  </div>
+</div>
+<main id="main">
+
+  <!-- SECTION 1: HERO + CLIMATE TECH -->
+  <section id="top" class="relative flex min-h-[100dvh] flex-col justify-center overflow-hidden pb-7 pt-[104px]">
+    <div class="wrap">
+      <div class="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-10">
+        <div class="lg:col-span-8">
+          <p class="eyebrow rise" style="--d:40ms">Built for the monsoon belt</p>
+          <h1 class="display display-tight rise mt-4 text-[clamp(2.55rem,5.1vw,4.2rem)]" style="--d:110ms">
+            <span class="block">Engineered for 85%</span>
+            <span class="block">Humidity. <span class="text-accent">Zero Cling.</span></span>
+          </h1>
+          <p class="rise mt-5 max-w-[47ch] text-[14.5px] leading-relaxed text-inksoft sm:text-[15.5px]" style="--d:190ms">
+            An ultra-light knit that moves sweat off skin before it can grab. Tested across Chennai, Mumbai and Kochi.
+          </p>
+          <div class="rise mt-7 flex flex-wrap items-center gap-3" style="--d:270ms">
+            <a href="#shop" class="btn btn-primary h-[50px] px-6 text-[14.5px]">
+              Shop ZoneVent Series
+              <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+            </a>
+            <a href="#fit-finder" class="group inline-flex items-center gap-2 px-1 text-[13px] font-medium text-ink">
+              Find your size
+              <span class="grid h-8 w-8 place-items-center rounded-full border border-line transition-colors group-hover:border-ink/40 group-hover:bg-surface">
+                <i data-lucide="ruler" class="h-3.5 w-3.5"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-4">
+          <figure class="rise" style="--d:200ms">
+            <div class="photo-frame relative h-[clamp(300px,46vh,430px)] overflow-hidden rounded-[4px]">
+              <svg class="garment-svg absolute inset-0 h-full w-full p-10 opacity-40" viewBox="0 0 400 440" aria-hidden="true">
+                <use href="#g-tee"></use>
+              </svg>
+              <img
+                src="https://images.unsplash.com/photo-1659150044666-fc1c99bc03c7?auto=format&fit=crop&w=1100&q=85"
+                alt="Runner wearing the ZoneVent Run Tee and split shorts on a humid trail run"
+                class="photo-tone relative h-full w-full object-cover object-[50%_28%]"
+                width="1100" height="1650" fetchpriority="high" onerror="this.style.opacity='0'">
+              <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0a100b]/40 via-transparent to-[#0a100b]/10"></div>
+            </div>
+            <figcaption class="mt-2.5 flex items-start justify-between gap-4 font-mono text-[9.5px] uppercase tracking-[0.12em] text-muted">
+              <span>ZoneVent Run Tee / Monsoon Slate</span>
+              <span class="text-right">Tested at 34°C / 85% RH</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="panel mt-5 overflow-hidden bg-paper/70 backdrop-blur" data-reveal>
+        <div class="grid lg:grid-cols-12">
+          <div class="flex flex-col justify-between border-b border-line p-5 lg:col-span-4 lg:border-b-0 lg:border-r">
+            <div>
+              <p class="mono-label text-muted">Wet-weight test</p>
+              <h2 class="mt-2 text-[14px] font-semibold tracking-[-0.01em]">Wet-weight vs traditional polyester</h2>
+              <p class="mt-1 text-[11px] leading-relaxed text-muted">After 45 minutes of sweat soak. Lower is better.</p>
+            </div>
+            <div class="mt-3 flex items-end gap-3">
+              <span class="display text-[32px] leading-none text-accent">-55%</span>
+              <span class="pb-0.5 text-[9.5px] uppercase leading-tight tracking-[0.08em] text-muted">wet weight<br>vs standard</span>
+            </div>
+          </div>
+
+          <div class="flex flex-col justify-center p-5 lg:col-span-8">
+            <div class="space-y-3">
+              <div class="flex items-center gap-3">
+                <span class="w-[128px] shrink-0 text-[11px] text-muted">Standard polyester</span>
+                <div class="min-w-0 flex-1">
+                  <div class="metric-bar bar w-full bg-ink/20"></div>
+                </div>
+                <span class="num w-[52px] shrink-0 text-right text-[11.5px] text-muted">280g</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="w-[128px] shrink-0 text-[11px] font-medium">AeroRun, soaked</span>
+                <div class="min-w-0 flex-1">
+                  <div class="metric-bar bar w-[44.6%] bg-accent"></div>
+                </div>
+                <span class="num w-[52px] shrink-0 text-right text-[11.5px] font-semibold">125g</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="w-[128px] shrink-0 text-[11px]">AeroRun, dry</span>
+                <div class="min-w-0 flex-1">
+                  <div class="metric-bar bar w-[39.3%] bg-ink"></div>
+                </div>
+                <span class="num w-[52px] shrink-0 text-right text-[11.5px]">110g</span>
+              </div>
+            </div>
+            <div class="mt-4 flex items-center justify-between border-t border-line pt-3">
+              <span class="font-mono text-[9px] uppercase tracking-[0.12em] text-muted">ZoneVent 02 / single jersey</span>
+              <span class="flex items-center gap-1.5 text-[10px] text-ink">
+                <i data-lucide="droplets" class="h-3 w-3 text-accent"></i>
+                3.2x faster evaporation
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-3 grid grid-cols-1 divide-y divide-line border-y border-line sm:grid-cols-3 sm:divide-x sm:divide-y-0" data-reveal style="--d:120ms">
+        <div class="flex items-center gap-2.5 py-3 sm:px-4">
+          <i data-lucide="wind" class="h-4 w-4 shrink-0 text-accent"></i>
+          <span class="text-[11.5px] font-medium">3.2x Faster Evaporation</span>
+        </div>
+        <div class="flex items-center gap-2.5 py-3 sm:px-4">
+          <i data-lucide="shield-check" class="h-4 w-4 shrink-0 text-accent"></i>
+          <span class="text-[11.5px] font-medium">Zero Seam Chafing</span>
+        </div>
+        <div class="flex items-center gap-2.5 py-3 sm:px-4">
+          <i data-lucide="recycle" class="h-4 w-4 shrink-0 text-accent"></i>
+          <span class="text-[11.5px] font-medium">100% Recycled Technical Micro-knit</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: PRODUCT CATALOG -->
+  <section id="shop" class="flex min-h-[100dvh] flex-col justify-center border-t border-line pb-8 pt-[100px]">
+    <div class="wrap">
+      <div class="flex flex-col gap-5 xl:flex-row xl:items-end xl:justify-between">
+        <div data-reveal>
+          <h2 class="display text-[clamp(1.95rem,3.4vw,2.9rem)] leading-[1]">Performance Running Essentials</h2>
+          <p class="mt-3 max-w-[58ch] text-[13px] leading-relaxed text-inksoft">Four pieces for the 30°C training block. Cut light, knit to breathe, tested until they stopped sticking.</p>
+        </div>
+        <div class="flex flex-col gap-2 xl:items-end" data-reveal style="--d:80ms">
+          <div class="flex flex-wrap gap-1.5" role="group" aria-label="Filter products">
+            <button type="button" class="filter-pill" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" class="filter-pill" data-filter="tops" aria-pressed="false">ZoneVent Tops</button>
+            <button type="button" class="filter-pill" data-filter="bottoms" aria-pressed="false">Anti-Chafe Bottoms</button>
+            <button type="button" class="filter-pill" data-filter="accessories" aria-pressed="false">Accessories</button>
+          </div>
+          <span id="productCount" class="font-mono text-[9.5px] uppercase tracking-[0.12em] text-muted">4 pieces</span>
+        </div>
+      </div>
+
+      <div id="productGrid" class="mt-7 grid grid-cols-1 gap-3.5 sm:grid-cols-2 lg:grid-cols-4">
+
+        <article class="product-card js-product panel group flex flex-col overflow-hidden" data-category="tops" data-name="ZoneVent Run Tee" data-reveal style="--d:0ms">
+          <div class="product-visual relative aspect-[10/9] overflow-hidden border-b border-line">
+            <svg class="garment-svg absolute inset-0 h-full w-full p-3.5" viewBox="0 0 400 440" aria-hidden="true" style="--g1:#3F4A4A;--g2:#2A3434;--g3:#232C2C;--g4:#E2E8E2">
+              <use href="#g-tee"></use>
+            </svg>
+            <button type="button" class="wish js-wish absolute right-2.5 top-2.5 grid h-8 w-8 place-items-center rounded-full border border-line bg-paper/90 backdrop-blur transition-colors hover:border-ink/30" aria-label="Save ZoneVent Run Tee" aria-pressed="false">
+              <i data-lucide="heart" class="h-3.5 w-3.5"></i>
+            </button>
+          </div>
+          <div class="flex flex-1 flex-col p-3.5">
+            <div class="flex items-start justify-between gap-2">
+              <span class="chip chip-accent">Best for 10K / humid runs</span>
+              <span class="flex shrink-0 items-center gap-1 pt-1">
+                <i data-lucide="star" class="h-3 w-3 fill-accent text-accent"></i>
+                <span class="num text-[10.5px] font-semibold">4.9</span>
+              </span>
+            </div>
+            <h3 class="mt-2.5 min-h-[2.3em] text-[15px] font-semibold leading-[1.15] tracking-[-0.015em]">ZoneVent Run Tee</h3>
+            <div class="mt-1 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.08em] text-muted">
+              <span>1,240 reviews</span>
+              <span class="h-2.5 w-px bg-line"></span>
+              <span>Unisex</span>
+            </div>
+            <div class="mt-auto flex items-end justify-between gap-2 pt-3">
+              <div>
+                <p class="num text-[14px] font-semibold tracking-[-0.02em]">₹1,499</p>
+                <p class="js-color-name mt-1 font-mono text-[8.5px] uppercase tracking-[0.1em] text-muted">Monsoon Slate</p>
+              </div>
+              <div class="flex items-center gap-1.5" role="group" aria-label="ZoneVent Run Tee colors">
+                <button type="button" class="swatch js-swatch is-active" style="background:#3F4A4A" data-g1="#3F4A4A" data-g2="#2A3434" data-g3="#232C2C" data-g4="#E2E8E2" data-name="Monsoon Slate" aria-label="Monsoon Slate" aria-pressed="true" title="Monsoon Slate"></button>
+                <button type="button" class="swatch js-swatch" style="background:#1E5A61" data-g1="#1E5A61" data-g2="#15444A" data-g3="#123A3F" data-g4="#DFEAE8" data-name="Ocean Teal" aria-label="Ocean Teal" aria-pressed="false" title="Ocean Teal"></button>
+                <button type="button" class="swatch js-swatch" style="background:#B37A34" data-g1="#B37A34" data-g2="#936225" data-g3="#7D521E" data-g4="#F1E6D4" data-name="Ochre" aria-label="Ochre" aria-pressed="false" title="Ochre"></button>
+              </div>
+            </div>
+            <button type="button" class="btn btn-outline btn-sm js-add mt-3 w-full">
+              <i data-lucide="plus" class="h-3.5 w-3.5"></i>
+              <span>Quick Add</span>
+            </button>
+          </div>
+        </article>
+
+        <article class="product-card js-product panel group flex flex-col overflow-hidden" data-category="tops" data-name="Everyday Pace Tee" data-reveal style="--d:70ms">
+          <div class="product-visual relative aspect-[10/9] overflow-hidden border-b border-line">
+            <svg class="garment-svg absolute inset-0 h-full w-full p-3.5" viewBox="0 0 400 440" aria-hidden="true" style="--g1:#B9B8AC;--g2:#9E9D90;--g3:#89887C;--g4:#2F332C">
+              <use href="#g-tee"></use>
+            </svg>
+            <button type="button" class="wish js-wish absolute right-2.5 top-2.5 grid h-8 w-8 place-items-center rounded-full border border-line bg-paper/90 backdrop-blur transition-colors hover:border-ink/30" aria-label="Save Everyday Pace Tee" aria-pressed="false">
+              <i data-lucide="heart" class="h-3.5 w-3.5"></i>
+            </button>
+          </div>
+          <div class="flex flex-1 flex-col p-3.5">
+            <div class="flex items-start justify-between gap-2">
+              <span class="chip">Daily training</span>
+              <span class="flex shrink-0 items-center gap-1 pt-1">
+                <i data-lucide="star" class="h-3 w-3 fill-accent text-accent"></i>
+                <span class="num text-[10.5px] font-semibold">4.7</span>
+              </span>
+            </div>
+            <h3 class="mt-2.5 min-h-[2.3em] text-[15px] font-semibold leading-[1.15] tracking-[-0.015em]">Everyday Pace Tee</h3>
+            <div class="mt-1 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.08em] text-muted">
+              <span>862 reviews</span>
+              <span class="h-2.5 w-px bg-line"></span>
+              <span>Unisex</span>
+            </div>
+            <div class="mt-auto flex items-end justify-between gap-2 pt-3">
+              <div>
+                <p class="num text-[14px] font-semibold tracking-[-0.02em]">₹999</p>
+                <p class="js-color-name mt-1 font-mono text-[8.5px] uppercase tracking-[0.1em] text-muted">Concrete</p>
+              </div>
+              <div class="flex items-center gap-1.5" role="group" aria-label="Everyday Pace Tee colors">
+                <button type="button" class="swatch js-swatch is-active" style="background:#B9B8AC" data-g1="#B9B8AC" data-g2="#9E9D90" data-g3="#89887C" data-g4="#2F332C" data-name="Concrete" aria-label="Concrete" aria-pressed="true" title="Concrete"></button>
+                <button type="button" class="swatch js-swatch" style="background:#22261F" data-g1="#22261F" data-g2="#161A14" data-g3="#11150F" data-g4="#DDE1D6" data-name="Ink" aria-label="Ink" aria-pressed="false" title="Ink"></button>
+                <button type="button" class="swatch js-swatch" style="background:#5C6349" data-g1="#5C6349" data-g2="#474D38" data-g3="#3D432F" data-g4="#E4E7D8" data-name="Moss" aria-label="Moss" aria-pressed="false" title="Moss"></button>
+              </div>
+            </div>
+            <button type="button" class="btn btn-outline btn-sm js-add mt-3 w-full">
+              <i data-lucide="plus" class="h-3.5 w-3.5"></i>
+              <span>Quick Add</span>
+            </button>
+          </div>
+        </article>
+
+        <article class="product-card js-product panel group flex flex-col overflow-hidden" data-category="bottoms" data-name="AeroStride 5&quot; Split Shorts" data-reveal style="--d:140ms">
+          <div class="product-visual relative aspect-[10/9] overflow-hidden border-b border-line">
+            <svg class="garment-svg absolute inset-0 h-full w-full p-5" viewBox="0 0 400 440" aria-hidden="true" style="--g1:#2E3329;--g2:#20251D;--g3:#1A1F17;--g4:#DDE2D7">
+              <use href="#g-shorts"></use>
+            </svg>
+            <button type="button" class="wish js-wish absolute right-2.5 top-2.5 grid h-8 w-8 place-items-center rounded-full border border-line bg-paper/90 backdrop-blur transition-colors hover:border-ink/30" aria-label="Save AeroStride Split Shorts" aria-pressed="false">
+              <i data-lucide="heart" class="h-3.5 w-3.5"></i>
+            </button>
+          </div>
+          <div class="flex flex-1 flex-col p-3.5">
+            <div class="flex items-start justify-between gap-2">
+              <span class="chip chip-accent">Bounce-free pocket</span>
+              <span class="flex shrink-0 items-center gap-1 pt-1">
+                <i data-lucide="star" class="h-3 w-3 fill-accent text-accent"></i>
+                <span class="num text-[10.5px] font-semibold">4.8</span>
+              </span>
+            </div>
+            <h3 class="mt-2.5 min-h-[2.3em] text-[15px] font-semibold leading-[1.15] tracking-[-0.015em]">AeroStride 5" Split Shorts</h3>
+            <div class="mt-1 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.08em] text-muted">
+              <span>613 reviews</span>
+              <span class="h-2.5 w-px bg-line"></span>
+              <span>5" inseam</span>
+            </div>
+            <div class="mt-auto flex items-end justify-between gap-2 pt-3">
+              <div>
+                <p class="num text-[14px] font-semibold tracking-[-0.02em]">₹1,299</p>
+                <p class="js-color-name mt-1 font-mono text-[8.5px] uppercase tracking-[0.1em] text-muted">Black Olive</p>
+              </div>
+              <div class="flex items-center gap-1.5" role="group" aria-label="AeroStride Split Shorts colors">
+                <button type="button" class="swatch js-swatch is-active" style="background:#2E3329" data-g1="#2E3329" data-g2="#20251D" data-g3="#1A1F17" data-g4="#DDE2D7" data-name="Black Olive" aria-label="Black Olive" aria-pressed="true" title="Black Olive"></button>
+                <button type="button" class="swatch js-swatch" style="background:#5A6260" data-g1="#5A6260" data-g2="#454C4A" data-g3="#3B4240" data-g4="#E4E9E6" data-name="Storm" aria-label="Storm" aria-pressed="false" title="Storm"></button>
+                <button type="button" class="swatch js-swatch" style="background:#9C5C42" data-g1="#9C5C42" data-g2="#7F4832" data-g3="#6C3C29" data-g4="#F2E5DA" data-name="Clay" aria-label="Clay" aria-pressed="false" title="Clay"></button>
+              </div>
+            </div>
+            <button type="button" class="btn btn-outline btn-sm js-add mt-3 w-full">
+              <i data-lucide="plus" class="h-3.5 w-3.5"></i>
+              <span>Quick Add</span>
+            </button>
+          </div>
+        </article>
+
+        <article class="product-card js-product panel group flex flex-col overflow-hidden" data-category="tops" data-name="FeatherBreeze Singlet" data-reveal style="--d:210ms">
+          <div class="product-visual relative aspect-[10/9] overflow-hidden border-b border-line">
+            <svg class="garment-svg absolute inset-0 h-full w-full p-3.5" viewBox="0 0 400 440" aria-hidden="true" style="--g1:#D8D7CB;--g2:#C2C1B3;--g3:#A8A79A;--g4:#3A3F36">
+              <use href="#g-singlet"></use>
+            </svg>
+            <button type="button" class="wish js-wish absolute right-2.5 top-2.5 grid h-8 w-8 place-items-center rounded-full border border-line bg-paper/90 backdrop-blur transition-colors hover:border-ink/30" aria-label="Save FeatherBreeze Singlet" aria-pressed="false">
+              <i data-lucide="heart" class="h-3.5 w-3.5"></i>
+            </button>
+          </div>
+          <div class="flex flex-1 flex-col p-3.5">
+            <div class="flex items-start justify-between gap-2">
+              <span class="chip chip-accent">Ultra-light 78 g</span>
+              <span class="flex shrink-0 items-center gap-1 pt-1">
+                <i data-lucide="star" class="h-3 w-3 fill-accent text-accent"></i>
+                <span class="num text-[10.5px] font-semibold">4.9</span>
+              </span>
+            </div>
+            <h3 class="mt-2.5 min-h-[2.3em] text-[15px] font-semibold leading-[1.15] tracking-[-0.015em]">FeatherBreeze Singlet</h3>
+            <div class="mt-1 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.08em] text-muted">
+              <span>408 reviews</span>
+              <span class="h-2.5 w-px bg-line"></span>
+              <span>Race cut</span>
+            </div>
+            <div class="mt-auto flex items-end justify-between gap-2 pt-3">
+              <div>
+                <p class="num text-[14px] font-semibold tracking-[-0.02em]">₹899</p>
+                <p class="js-color-name mt-1 font-mono text-[8.5px] uppercase tracking-[0.1em] text-muted">Chalk</p>
+              </div>
+              <div class="flex items-center gap-1.5" role="group" aria-label="FeatherBreeze Singlet colors">
+                <button type="button" class="swatch js-swatch is-active" style="background:#D8D7CB" data-g1="#D8D7CB" data-g2="#C2C1B3" data-g3="#A8A79A" data-g4="#3A3F36" data-name="Chalk" aria-label="Chalk" aria-pressed="true" title="Chalk"></button>
+                <button type="button" class="swatch js-swatch" style="background:#A34A2E" data-g1="#A34A2E" data-g2="#83381F" data-g3="#6F2F1A" data-g4="#F4E3DA" data-name="Ember" aria-label="Ember" aria-pressed="false" title="Ember"></button>
+                <button type="button" class="swatch js-swatch" style="background:#44504F" data-g1="#44504F" data-g2="#333D3C" data-g3="#2A3332" data-g4="#E2E8E4" data-name="Slate" aria-label="Slate" aria-pressed="false" title="Slate"></button>
+              </div>
+            </div>
+            <button type="button" class="btn btn-outline btn-sm js-add mt-3 w-full">
+              <i data-lucide="plus" class="h-3.5 w-3.5"></i>
+              <span>Quick Add</span>
+            </button>
+          </div>
+        </article>
+
+        <div id="emptyState" class="hidden overflow-hidden rounded-[4px] border border-dashed border-line bg-surface/50 p-6 sm:col-span-2 lg:col-span-4">
+          <div class="flex flex-col items-start gap-5 sm:flex-row sm:items-center">
+            <span class="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-line bg-paper">
+              <i data-lucide="package-open" class="h-5 w-5 text-accent"></i>
+            </span>
+            <div class="flex-1">
+              <p id="emptyTitle" class="text-sm font-semibold">Accessories are still in the knit lab.</p>
+              <p id="emptyDesc" class="mt-1 max-w-[46ch] text-[12px] leading-relaxed text-muted">Socks, caps and arm sleeves land on 12 November. Leave your email and we will send the drop first.</p>
+            </div>
+            <button type="button" id="notifyBtn" class="btn btn-outline btn-sm shrink-0">
+              <i data-lucide="bell" class="h-3.5 w-3.5"></i>
+              Notify me
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: FIT FINDER -->
+  <section id="fit-finder" class="flex min-h-[100dvh] flex-col justify-center border-t border-line bg-surface/45 pb-8 pt-[100px]">
+    <div class="wrap">
+      <div data-reveal>
+        <h2 class="display text-[clamp(1.95rem,3.4vw,2.9rem)] leading-[1]">Precision Fit Finder</h2>
+        <p class="mt-3 max-w-[58ch] text-[13px] leading-relaxed text-inksoft">Say goodbye to chafing and exchanges. Two measurements, one size that stays put.</p>
+      </div>
+
+      <div class="panel mt-7 overflow-hidden" data-reveal style="--d:80ms">
+        <div class="grid lg:grid-cols-12">
+          <div class="p-5 lg:col-span-7 lg:p-7">
+            <div class="flex items-center justify-between">
+              <h3 class="text-[13px] font-semibold">Your measurements</h3>
+              <span class="font-mono text-[9px] uppercase tracking-[0.14em] text-muted">Metric / cm</span>
+            </div>
+
+            <div class="mt-5">
+              <div class="flex items-baseline justify-between gap-3">
+                <label for="fitHeight" class="text-[12px] font-medium">Your height</label>
+                <div class="flex items-baseline gap-1.5">
+                  <output id="heightVal" for="fitHeight" class="num text-[20px] font-semibold tracking-[-0.03em]">178</output>
+                  <span class="font-mono text-[10px] text-muted">cm</span>
+                </div>
+              </div>
+              <input id="fitHeight" type="range" min="150" max="200" step="1" value="178" class="range mt-3.5" aria-describedby="heightHint">
+              <div class="mt-2 flex justify-between font-mono text-[9px] text-muted" id="heightHint"><span>150</span><span>200</span></div>
+            </div>
+
+            <div class="mt-5">
+              <div class="flex items-baseline justify-between gap-3">
+                <label for="fitChest" class="text-[12px] font-medium">Chest / bust</label>
+                <div class="flex items-baseline gap-1.5">
+                  <output id="chestVal" for="fitChest" class="num text-[20px] font-semibold tracking-[-0.03em]">100</output>
+                  <span class="font-mono text-[10px] text-muted">cm</span>
+                </div>
+              </div>
+              <input id="fitChest" type="range" min="84" max="120" step="1" value="100" class="range mt-3.5" aria-describedby="chestHint">
+              <div class="mt-2 flex justify-between font-mono text-[9px] text-muted" id="chestHint"><span>84</span><span>120</span></div>
+            </div>
+
+            <fieldset class="mt-5">
+              <legend class="text-[12px] font-medium">Fit preference</legend>
+              <div class="mt-2.5 grid grid-cols-2 gap-2">
+                <label class="fit-option">
+                  <input type="radio" name="fit" value="race" class="sr-only" checked>
+                  <span class="flex items-start justify-between gap-2">
+                    <span>
+                      <span class="block text-[12px] font-semibold leading-tight">Aerodynamic</span>
+                      <span class="mt-0.5 block text-[10px] leading-tight text-muted">Race fit / 2 cm ease</span>
+                    </span>
+                    <span class="fit-check mt-0.5 grid h-4 w-4 shrink-0 place-items-center rounded-full bg-accent text-accentink">
+                      <i data-lucide="check" class="h-2.5 w-2.5"></i>
+                    </span>
+                  </span>
+                </label>
+                <label class="fit-option">
+                  <input type="radio" name="fit" value="relaxed" class="sr-only">
+                  <span class="flex items-start justify-between gap-2">
+                    <span>
+                      <span class="block text-[12px] font-semibold leading-tight">Relaxed airflow</span>
+                      <span class="mt-0.5 block text-[10px] leading-tight text-muted">Everyday / 5 cm ease</span>
+                    </span>
+                    <span class="fit-check mt-0.5 grid h-4 w-4 shrink-0 place-items-center rounded-full bg-accent text-accentink">
+                      <i data-lucide="check" class="h-2.5 w-2.5"></i>
+                    </span>
+                  </span>
+                </label>
+              </div>
+            </fieldset>
+
+            <p class="mt-3 flex items-start gap-2 text-[10.5px] leading-relaxed text-muted">
+              <i data-lucide="info" class="mt-0.5 h-3.5 w-3.5 shrink-0"></i>
+              Measure the fullest point of your chest, tape level. Between sizes, we round toward airflow, never tightness.
+            </p>
+          </div>
+
+          <div class="p-2 lg:col-span-5">
+            <div class="flex h-full flex-col rounded-[4px] border border-panelline bg-panel p-5 text-panelink sm:p-6">
+              <div class="flex items-center justify-between gap-3">
+                <span class="font-mono text-[9px] uppercase tracking-[0.15em] text-panelmuted">Recommended size</span>
+                <span class="font-mono text-[9px] uppercase tracking-[0.12em] text-panelmuted">Fit engine 02</span>
+              </div>
+
+              <div class="mt-2.5">
+                <div class="display leading-[1] text-[clamp(2rem,3vw,2.6rem)]">
+                  <span id="recName">Medium</span>
+                  <span class="text-panelmuted">(<span id="recCode">M</span>)</span>
+                </div>
+                <p id="recMeta" class="mt-1.5 font-mono text-[9.5px] uppercase tracking-[0.08em] text-panelmuted">Cut for 178 cm / Chest 96-102 cm</p>
+              </div>
+
+              <div class="my-5 h-px bg-panelline"></div>
+
+              <div class="flex items-center gap-5">
+                <div class="relative h-[104px] w-[104px] shrink-0">
+                  <svg viewBox="0 0 120 120" class="h-full w-full -rotate-90" aria-hidden="true">
+                    <circle cx="60" cy="60" r="52" fill="none" stroke="rgb(var(--panel-line))" stroke-width="5"></circle>
+                    <circle id="clingGauge" cx="60" cy="60" r="52" fill="none" stroke="rgb(var(--accent))" stroke-width="5" stroke-linecap="round" stroke-dasharray="326.73" stroke-dashoffset="6.53" style="transition: stroke-dashoffset .6s cubic-bezier(.16,1,.3,1)"></circle>
+                  </svg>
+                  <div class="absolute inset-0 grid place-items-center">
+                    <span id="recPct" class="display text-[23px] leading-none">98%</span>
+                  </div>
+                </div>
+                <div>
+                  <p class="text-[11px] font-semibold leading-tight">Predicted cling resistance</p>
+                  <p class="mt-1 max-w-[22ch] text-[10px] leading-relaxed text-panelmuted">Modelled on a 32°C / 80% RH run at 5:30 per km.</p>
+                  <div class="mt-2 flex items-center gap-1.5 text-[9.5px] font-medium text-panelink">
+                    <i data-lucide="trending-up" class="h-3 w-3 text-accent"></i>
+                    <span>Top 2% of tested fits</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-5 grid grid-cols-2 overflow-hidden rounded-[3px] border border-panelline">
+                <div class="border-r border-panelline p-3">
+                  <p class="font-mono text-[8.5px] uppercase tracking-[0.12em] text-panelmuted">Chafe risk</p>
+                  <p id="chafeRisk" class="num mt-1 text-[17px] font-semibold">02%</p>
+                </div>
+                <div class="p-3">
+                  <p class="font-mono text-[8.5px] uppercase tracking-[0.12em] text-panelmuted">Airflow index</p>
+                  <p id="airflowIndex" class="num mt-1 text-[17px] font-semibold">9.4</p>
+                </div>
+              </div>
+
+              <button type="button" id="lockFit" class="btn btn-primary mt-auto w-full sm:mt-5">
+                Lock My Size &amp; Shop
+                <i data-lucide="arrow-right" class="h-4 w-4"></i>
+              </button>
+              <p class="mt-2 text-center font-mono text-[8.5px] uppercase tracking-[0.1em] text-panelmuted">Free exchange if the fit misses</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel mt-3 flex flex-col gap-3 px-4 py-3.5 sm:flex-row sm:items-center" data-reveal style="--d:140ms">
+        <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-accentsoft text-accent">
+          <i data-lucide="shield-check" class="h-4 w-4"></i>
+        </span>
+        <div class="min-w-0 flex-1">
+          <p class="text-[12.5px] font-semibold">30-Day Hassle-Free Running Trial</p>
+          <p class="mt-0.5 text-[11px] leading-relaxed text-muted">If it chafes or hugs too tight, free exchange in 2 clicks. Run in it first, decide after.</p>
+        </div>
+        <span class="chip shrink-0">
+          <i data-lucide="rotate-ccw" class="h-3 w-3"></i>
+          Free size exchange
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: TECHNICAL DETAIL + ECOTRACE -->
+  <section id="technology" class="flex min-h-[100dvh] flex-col justify-center border-t border-line pb-8 pt-[100px]">
+    <div class="wrap">
+      <div class="flex items-center justify-between gap-4" data-reveal>
+        <p class="font-mono text-[9px] uppercase tracking-[0.12em] text-muted">Shop / Tops / ZoneVent Run Tee</p>
+        <span class="hidden sm:inline-flex"><span class="chip">Unisex / regular</span></span>
+      </div>
+
+      <div class="mt-3.5 grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-8">
+        <div class="lg:col-span-7" data-reveal>
+          <div class="overflow-hidden rounded-[4px] border border-line bg-surface">
+            <div class="flex items-center justify-between gap-3 border-b border-line px-3 py-2">
+              <div class="flex rounded-[3px] border border-line bg-paper p-0.5" role="group" aria-label="Garment view">
+                <button type="button" class="view-btn is-active" data-view="back" aria-pressed="true">Back view</button>
+                <button type="button" class="view-btn" data-view="front" aria-pressed="false">Front view</button>
+              </div>
+              <span class="font-mono text-[8.5px] uppercase tracking-[0.12em] text-muted">ZoneVent 02 / engineered knit</span>
+            </div>
+
+            <div id="detailVisual" class="flex" style="height: clamp(330px, 46vh, 430px); --g1:#3F4A4A; --g2:#2A3434; --g3:#232C2C; --g4:#E2E8E2">
+              <div class="product-visual relative min-w-0 flex-1">
+                <svg class="garment-svg absolute inset-0 h-full w-full p-4" viewBox="0 0 400 440" aria-hidden="true">
+                  <use id="mainGarmentUse" href="#g-tee-back"></use>
+                </svg>
+
+                <div class="absolute" style="left:52%;top:24%" data-only="back">
+                  <span class="hotspot-dot" aria-hidden="true">01</span>
+                  <span class="hotspot-label absolute left-6 top-1/2 -translate-y-1/2">
+                    <span class="block text-[9.5px] font-semibold leading-tight">Upper-back micro-mesh</span>
+                    <span class="mt-0.5 block font-mono text-[8px] uppercase tracking-[0.06em] text-muted">42% open airflow</span>
+                  </span>
+                </div>
+                <div class="absolute" style="left:33%;top:55%">
+                  <span class="hotspot-dot" aria-hidden="true">02</span>
+                  <span class="hotspot-label absolute left-6 top-1/2 -translate-y-1/2">
+                    <span class="block text-[9.5px] font-semibold leading-tight">Bonded flatlock seams</span>
+                    <span class="mt-0.5 block font-mono text-[8px] uppercase tracking-[0.06em] text-muted">0.4 mm / no thread rub</span>
+                  </span>
+                </div>
+                <div class="absolute" style="left:56%;top:71%">
+                  <span class="hotspot-dot" aria-hidden="true">03</span>
+                  <span class="hotspot-label absolute left-6 top-1/2 -translate-y-1/2">
+                    <span class="block text-[9.5px] font-semibold leading-tight">Regional jacquard vents</span>
+                    <span class="mt-0.5 block font-mono text-[8px] uppercase tracking-[0.06em] text-muted">Knitted in Tamil Nadu</span>
+                  </span>
+                </div>
+
+                <span class="absolute bottom-3 left-3 font-mono text-[8px] uppercase tracking-[0.12em] text-muted">Model 183 cm / wears M</span>
+              </div>
+
+              <div class="hidden w-[31%] min-w-[150px] flex-col border-l border-line sm:flex">
+                <div class="macro-tile flex flex-1 flex-col">
+                  <svg viewBox="0 0 220 220" preserveAspectRatio="xMidYMid slice" class="min-h-0 w-full flex-1" aria-hidden="true">
+                    <rect width="220" height="220" fill="#33403f"/>
+                    <path d="M-20 40 L140 200 M0 20 L160 180 M40 0 L220 160 M80 0 L240 140" stroke="#d9e1da" stroke-opacity=".22" stroke-width="1.4"/>
+                    <path d="M-10 60 L120 190 M30 10 L190 170 M90 0 L230 140" stroke="#0e1511" stroke-opacity=".35" stroke-width="1.2"/>
+                    <path d="M0 132 C60 126 90 138 220 128" stroke="#e7eee6" stroke-opacity=".2" stroke-width="1"/>
+                    <path d="M0 140 C60 134 90 146 220 136" stroke="#0b120e" stroke-opacity=".3" stroke-width="1"/>
+                  </svg>
+                  <div class="border-t border-line bg-paper px-2.5 py-1.5">
+                    <p class="font-mono text-[7.5px] uppercase tracking-[0.08em] text-muted">Macro 01 / bonded seam</p>
+                  </div>
+                </div>
+                <div class="macro-tile flex flex-1 flex-col border-t border-line">
+                  <svg viewBox="0 0 220 220" preserveAspectRatio="xMidYMid slice" class="min-h-0 w-full flex-1" aria-hidden="true">
+                    <rect width="220" height="220" fill="#2c3837"/>
+                    <g fill="#0b110e" opacity=".55">
+                      <circle cx="12" cy="12" r="5"/><circle cx="42" cy="12" r="5"/><circle cx="72" cy="12" r="5"/><circle cx="102" cy="12" r="5"/><circle cx="132" cy="12" r="5"/><circle cx="162" cy="12" r="5"/><circle cx="192" cy="12" r="5"/><circle cx="222" cy="12" r="5"/>
+                      <circle cx="27" cy="42" r="5"/><circle cx="57" cy="42" r="5"/><circle cx="87" cy="42" r="5"/><circle cx="117" cy="42" r="5"/><circle cx="147" cy="42" r="5"/><circle cx="177" cy="42" r="5"/><circle cx="207" cy="42" r="5"/>
+                      <circle cx="12" cy="72" r="5"/><circle cx="42" cy="72" r="5"/><circle cx="72" cy="72" r="5"/><circle cx="102" cy="72" r="5"/><circle cx="132" cy="72" r="5"/><circle cx="162" cy="72" r="5"/><circle cx="192" cy="72" r="5"/>
+                      <circle cx="27" cy="102" r="5"/><circle cx="57" cy="102" r="5"/><circle cx="87" cy="102" r="5"/><circle cx="117" cy="102" r="5"/><circle cx="147" cy="102" r="5"/><circle cx="177" cy="102" r="5"/><circle cx="207" cy="102" r="5"/>
+                      <circle cx="12" cy="132" r="5"/><circle cx="42" cy="132" r="5"/><circle cx="72" cy="132" r="5"/><circle cx="102" cy="132" r="5"/><circle cx="132" cy="132" r="5"/><circle cx="162" cy="132" r="5"/><circle cx="192" cy="132" r="5"/>
+                      <circle cx="27" cy="162" r="5"/><circle cx="57" cy="162" r="5"/><circle cx="87" cy="162" r="5"/><circle cx="117" cy="162" r="5"/><circle cx="147" cy="162" r="5"/><circle cx="177" cy="162" r="5"/><circle cx="207" cy="162" r="5"/>
+                      <circle cx="12" cy="192" r="5"/><circle cx="42" cy="192" r="5"/><circle cx="72" cy="192" r="5"/><circle cx="102" cy="192" r="5"/><circle cx="132" cy="192" r="5"/><circle cx="162" cy="192" r="5"/><circle cx="192" cy="192" r="5"/>
+                    </g>
+                    <path d="M0 210 L220 30 M0 230 L220 50" stroke="#e9efe7" stroke-opacity=".14" stroke-width="1"/>
+                  </svg>
+                  <div class="border-t border-line bg-paper px-2.5 py-1.5">
+                    <p class="font-mono text-[7.5px] uppercase tracking-[0.08em] text-muted">Macro 02 / open mesh</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 divide-y border-t border-line sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+              <div class="flex items-start gap-2 px-3 py-2.5">
+                <span class="mt-px font-mono text-[8px] font-semibold text-accent">01</span>
+                <p class="text-[9.5px] leading-tight text-inksoft">Upper-back airflow<br>mesh zone</p>
+              </div>
+              <div class="flex items-start gap-2 px-3 py-2.5">
+                <span class="mt-px font-mono text-[8px] font-semibold text-accent">02</span>
+                <p class="text-[9.5px] leading-tight text-inksoft">Bonded flatlock<br>anti-rub seams</p>
+              </div>
+              <div class="flex items-start gap-2 px-3 py-2.5">
+                <span class="mt-px font-mono text-[8px] font-semibold text-accent">03</span>
+                <p class="text-[9.5px] leading-tight text-inksoft">Regional jacquard<br>ventilation knit</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5" data-reveal style="--d:100ms">
+          <div class="lg:sticky lg:top-[84px]">
+            <p class="font-mono text-[9px] uppercase tracking-[0.15em] text-muted">ZoneVent Series / 02</p>
+            <h2 class="display mt-1.5 text-[clamp(1.8rem,2.6vw,2.3rem)] leading-[1]">ZoneVent Run Tee</h2>
+
+            <div class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1">
+              <span class="flex items-center gap-1">
+                <i data-lucide="star" class="h-3 w-3 fill-accent text-accent"></i>
+                <span class="num text-[11px] font-semibold">4.9</span>
+              </span>
+              <span class="text-[10.5px] text-muted">1,240 reviews</span>
+              <span class="h-2.5 w-px bg-line"></span>
+              <span class="text-[10.5px] text-muted">Unisex</span>
+            </div>
+
+            <div class="mt-3 flex items-end gap-2.5">
+              <span class="num text-[23px] font-semibold leading-none tracking-[-0.03em]">₹1,499</span>
+              <span class="pb-0.5 text-[9.5px] text-muted">Inclusive of all taxes</span>
+            </div>
+
+            <div class="mt-3.5 border-t border-line pt-3">
+              <div class="flex items-center justify-between gap-3">
+                <span class="text-[11.5px] font-medium">Color / <span id="detailColorName">Monsoon Slate</span></span>
+                <span class="font-mono text-[8.5px] uppercase tracking-[0.1em] text-muted">03 colorways</span>
+              </div>
+              <div class="mt-2 flex items-center gap-2" role="group" aria-label="ZoneVent Run Tee colors">
+                <button type="button" class="detail-swatch js-detail-swatch is-active" style="background:#3F4A4A" data-g1="#3F4A4A" data-g2="#2A3434" data-g3="#232C2C" data-g4="#E2E8E2" data-name="Monsoon Slate" aria-label="Monsoon Slate" aria-pressed="true"></button>
+                <button type="button" class="detail-swatch js-detail-swatch" style="background:#1E5A61" data-g1="#1E5A61" data-g2="#15444A" data-g3="#123A3F" data-g4="#DDEAE7" data-name="Ocean Teal" aria-label="Ocean Teal" aria-pressed="false"></button>
+                <button type="button" class="detail-swatch js-detail-swatch" style="background:#B37A34" data-g1="#B37A34" data-g2="#936225" data-g3="#7D521E" data-g4="#F2E7D5" data-name="Ochre" aria-label="Ochre" aria-pressed="false"></button>
+              </div>
+            </div>
+
+            <div class="mt-3">
+              <div class="flex items-center justify-between gap-3">
+                <span class="text-[11.5px] font-medium">Size / <span id="selectedSize">M</span></span>
+                <a href="#fit-finder" class="text-[10px] underline decoration-line underline-offset-2 transition-colors hover:decoration-ink">Open fit finder</a>
+              </div>
+              <div class="mt-2 grid grid-cols-4 gap-1.5" role="group" aria-label="Select size">
+                <button type="button" class="size-btn" data-size="S" aria-pressed="false">S</button>
+                <button type="button" class="size-btn" data-size="M" aria-pressed="true">M</button>
+                <button type="button" class="size-btn" data-size="L" aria-pressed="false">L</button>
+                <button type="button" class="size-btn" data-size="XL" aria-pressed="false">XL</button>
+              </div>
+            </div>
+
+            <div class="mt-2.5 flex items-start gap-2">
+              <i data-lucide="circle-check" class="mt-0.5 h-3.5 w-3.5 shrink-0 text-success"></i>
+              <div>
+                <p class="text-[11px] font-medium leading-tight">In stock for express delivery</p>
+                <p id="inventoryLine" class="mt-0.5 text-[9.5px] leading-tight text-muted">Size M: 14 units ready to ship from Bengaluru.</p>
+              </div>
+            </div>
+
+            <button type="button" id="detailAdd" class="btn btn-primary mt-3.5 w-full">
+              Add to Bag - ₹1,499
+              <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+            </button>
+            <div class="mt-1.5 flex items-center justify-between gap-3 text-[9px] text-muted">
+              <span class="flex items-center gap-1"><i data-lucide="truck" class="h-3 w-3"></i> Free delivery</span>
+              <span class="flex items-center gap-1"><i data-lucide="rotate-ccw" class="h-3 w-3"></i> 30-day running trial</span>
+            </div>
+
+            <div class="mt-4">
+              <div class="acc open">
+                <button type="button" class="acc-trigger" aria-expanded="true">
+                  <i data-lucide="layers" class="h-4 w-4 shrink-0 text-muted"></i>
+                  <span class="min-w-0 flex-1">
+                    <span class="block text-[11.5px] font-semibold leading-tight">Climate Knit Technology Breakdown</span>
+                    <span class="mt-0.5 block text-[9.5px] leading-tight text-muted">Three zones. One dry microclimate.</span>
+                  </span>
+                  <i data-lucide="plus" class="acc-icon h-3.5 w-3.5"></i>
+                </button>
+                <div class="acc-body">
+                  <div>
+                    <div class="border-t border-line px-3.5 pb-3 pt-2">
+                      <div class="flex gap-2.5 py-1.5">
+                        <span class="w-[72px] shrink-0 font-mono text-[8px] uppercase tracking-[0.06em] text-muted">Airflow</span>
+                        <p class="text-[9.5px] leading-snug text-inksoft">42% open mesh across the upper back dumps heat before it pools.</p>
+                      </div>
+                      <div class="flex gap-2.5 border-t border-line/70 py-1.5">
+                        <span class="w-[72px] shrink-0 font-mono text-[8px] uppercase tracking-[0.06em] text-muted">Seams</span>
+                        <p class="text-[9.5px] leading-snug text-inksoft">Bonded flatlock sits outside the skin line, so nothing rubs at 10K.</p>
+                      </div>
+                      <div class="flex gap-2.5 border-t border-line/70 py-1.5">
+                        <span class="w-[72px] shrink-0 font-mono text-[8px] uppercase tracking-[0.06em] text-muted">Jacquard</span>
+                        <p class="text-[9.5px] leading-snug text-inksoft">Raised vent channels move vapour sideways instead of trapping it.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="acc">
+                <button type="button" class="acc-trigger" aria-expanded="false">
+                  <i data-lucide="leaf" class="h-4 w-4 shrink-0 text-muted"></i>
+                  <span class="min-w-0 flex-1">
+                    <span class="block text-[11.5px] font-semibold leading-tight">EcoTrace: Sourced &amp; Knitted from 100% Recycled PET in Tamil Nadu</span>
+                    <span class="mt-0.5 block text-[9.5px] leading-tight text-muted">Bottle to yarn to garment, traced in one state.</span>
+                  </span>
+                  <i data-lucide="plus" class="acc-icon h-3.5 w-3.5"></i>
+                </button>
+                <div class="acc-body">
+                  <div>
+                    <div class="border-t border-line px-3.5 pb-3 pt-2.5">
+                      <p class="text-[9.5px] leading-relaxed text-inksoft">Post-consumer PET bottles are washed, chipped and spun into technical yarn in Tiruppur. Knitting, cutting and finishing happen within 40 km of the mill.</p>
+                      <div class="mt-2 grid grid-cols-3 overflow-hidden rounded-[2px] border border-line">
+                        <div class="border-r border-line px-2 py-1.5"><p class="font-mono text-[7px] uppercase tracking-[0.06em] text-muted">Step 01</p><p class="mt-0.5 text-[9px] font-medium">Bottle collection</p></div>
+                        <div class="border-r border-line px-2 py-1.5"><p class="font-mono text-[7px] uppercase tracking-[0.06em] text-muted">Step 02</p><p class="mt-0.5 text-[9px] font-medium">Yarn spinning</p></div>
+                        <div class="px-2 py-1.5"><p class="font-mono text-[7px] uppercase tracking-[0.06em] text-muted">Step 03</p><p class="mt-0.5 text-[9px] font-medium">Knit + finish</p></div>
+                      </div>
+                      <p class="mt-2 font-mono text-[8px] uppercase tracking-[0.08em] text-muted">100% recycled PET / Tiruppur, Tamil Nadu</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: CART + REVIEWS -->
+  <section id="reviews" class="flex min-h-[100dvh] flex-col justify-center border-t border-line pb-5 pt-[100px]">
+    <div class="wrap">
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between" data-reveal>
+        <div>
+          <h2 class="display text-[clamp(1.95rem,3.4vw,2.9rem)] leading-[1]">Bag and checkout</h2>
+          <p class="mt-2.5 max-w-[54ch] text-[13px] leading-relaxed text-inksoft">Two pieces. Free delivery. A 30-day trial on both.</p>
+        </div>
+        <span class="inline-flex w-fit items-center gap-1.5 rounded-full border border-line px-3 py-1.5 font-mono text-[8.5px] uppercase tracking-[0.1em] text-muted">
+          <i data-lucide="lock-keyhole" class="h-3 w-3"></i>
+          Secure checkout
+        </span>
+      </div>
+
+      <div class="mt-5 grid grid-cols-1 gap-5 lg:grid-cols-12">
+        <div class="lg:col-span-5" data-reveal>
+          <div id="orderSummary" class="panel overflow-hidden">
+            <div class="flex items-center justify-between border-b border-line px-4 py-3">
+              <h3 class="text-[13px] font-semibold">Order Summary <span class="font-normal text-muted">(2 Items)</span></h3>
+              <span class="num text-[9px] uppercase tracking-[0.08em] text-muted">AR-2841</span>
+            </div>
+
+            <div class="divide-y divide-line">
+              <div class="flex gap-3 px-4 py-3" data-unit="1499">
+                <div class="cart-thumb grid h-[56px] w-[46px] shrink-0 place-items-center overflow-hidden rounded-[3px] border border-line">
+                  <svg class="garment-svg h-full w-full p-1" viewBox="0 0 400 440" aria-hidden="true" style="--g1:#3F4A4A;--g2:#2A3434;--g3:#232C2C;--g4:#E2E8E2">
+                    <use href="#g-tee"></use>
+                  </svg>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <div class="flex items-baseline justify-between gap-2">
+                    <p class="text-[11.5px] font-semibold leading-tight">ZoneVent Run Tee</p>
+                    <p class="num js-line-price shrink-0 text-[11.5px] font-semibold">₹1,499</p>
+                  </div>
+                  <p class="mt-0.5 font-mono text-[8px] uppercase tracking-[0.06em] text-muted">Monsoon Slate / M</p>
+                  <div class="mt-1.5 flex items-center justify-between gap-2">
+                    <div class="flex items-center rounded-[3px] border border-line" aria-label="ZoneVent Run Tee quantity">
+                      <button type="button" class="qty-btn js-qty" data-delta="-1" aria-label="Decrease ZoneVent Run Tee quantity">
+                        <i data-lucide="minus" class="h-2.5 w-2.5"></i>
+                      </button>
+                      <span class="js-qty-val num w-4 text-center text-[10px]">1</span>
+                      <button type="button" class="qty-btn js-qty" data-delta="1" aria-label="Increase ZoneVent Run Tee quantity">
+                        <i data-lucide="plus" class="h-2.5 w-2.5"></i>
+                      </button>
+                    </div>
+                    <span class="text-[8.5px] text-muted">Ships today</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex gap-3 px-4 py-3" data-unit="1299">
+                <div class="cart-thumb grid h-[56px] w-[46px] shrink-0 place-items-center overflow-hidden rounded-[3px] border border-line">
+                  <svg class="garment-svg h-full w-full p-1.5" viewBox="0 0 400 440" aria-hidden="true" style="--g1:#2E3329;--g2:#20251D;--g3:#1A1F17;--g4:#DDE2D7">
+                    <use href="#g-shorts"></use>
+                  </svg>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <div class="flex items-baseline justify-between gap-2">
+                    <p class="text-[11.5px] font-semibold leading-tight">AeroStride 5" Split Shorts</p>
+                    <p class="num js-line-price shrink-0 text-[11.5px] font-semibold">₹1,299</p>
+                  </div>
+                  <p class="mt-0.5 font-mono text-[8px] uppercase tracking-[0.06em] text-muted">Black Olive / M</p>
+                  <div class="mt-1.5 flex items-center justify-between gap-2">
+                    <div class="flex items-center rounded-[3px] border border-line" aria-label="AeroStride Split Shorts quantity">
+                      <button type="button" class="qty-btn js-qty" data-delta="-1" aria-label="Decrease AeroStride Split Shorts quantity">
+                        <i data-lucide="minus" class="h-2.5 w-2.5"></i>
+                      </button>
+                      <span class="js-qty-val num w-4 text-center text-[10px]">1</span>
+                      <button type="button" class="qty-btn js-qty" data-delta="1" aria-label="Increase AeroStride Split Shorts quantity">
+                        <i data-lucide="plus" class="h-2.5 w-2.5"></i>
+                      </button>
+                    </div>
+                    <span class="text-[8.5px] text-muted">Ships today</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="border-t border-line bg-surface/40 px-4 py-3">
+              <div class="space-y-1.5 text-[10.5px]">
+                <div class="flex items-center justify-between">
+                  <span class="text-muted">Subtotal</span>
+                  <span id="cartSubtotal" class="num">₹2,798</span>
+                </div>
+                <div id="couponRow" class="flex items-center justify-between">
+                  <span class="flex items-center gap-1.5">
+                    <i data-lucide="ticket" class="h-3 w-3 text-accent"></i>
+                    Coupon <span class="num font-semibold">RUNINDIA</span>
+                  </span>
+                  <span class="flex items-center gap-2">
+                    <span id="couponValue" class="num text-success">-₹150</span>
+                    <button type="button" id="removeCoupon" class="text-[9px] text-muted underline decoration-line underline-offset-2 hover:text-ink">Remove</button>
+                  </span>
+                </div>
+                <div id="applyCouponRow" class="hidden items-center justify-between">
+                  <span class="text-muted">No coupon applied</span>
+                  <button type="button" id="applyCoupon" class="text-[9px] font-semibold text-accent underline decoration-accent/40 underline-offset-2">Apply RUNINDIA</button>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-muted">Delivery</span>
+                  <span class="font-mono text-[9px] uppercase tracking-[0.08em]">Free</span>
+                </div>
+              </div>
+              <div class="mt-2.5 flex items-baseline justify-between border-t border-line pt-2.5">
+                <span class="text-[12px] font-semibold">Total</span>
+                <span id="cartTotal" class="num text-[16px] font-semibold tracking-[-0.02em]">₹2,648</span>
+              </div>
+            </div>
+
+            <div class="border-t border-line p-4">
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <p class="text-[11.5px] font-semibold">Pay <span id="payAmount">₹2,648</span> with UPI</p>
+                  <p class="mt-0.5 text-[9px] text-muted">1-click. No card details.</p>
+                </div>
+                <span class="flex items-center gap-1 font-mono text-[7.5px] uppercase tracking-[0.08em] text-muted">
+                  <i data-lucide="shield-check" class="h-3 w-3"></i> UPI 2.0
+                </span>
+              </div>
+              <div id="paymentArea" class="mt-2.5">
+                <div class="grid grid-cols-3 gap-1.5">
+                  <button type="button" class="pay-btn js-pay" data-method="GPay">
+                    <i data-lucide="smartphone" class="h-3.5 w-3.5 text-muted"></i>
+                    GPay
+                  </button>
+                  <button type="button" class="pay-btn js-pay" data-method="PhonePe">
+                    <i data-lucide="send" class="h-3.5 w-3.5 text-muted"></i>
+                    PhonePe
+                  </button>
+                  <button type="button" class="pay-btn js-pay" data-method="Paytm">
+                    <i data-lucide="wallet" class="h-3.5 w-3.5 text-muted"></i>
+                    Paytm
+                  </button>
+                </div>
+                <p class="mt-2 text-center text-[8px] leading-relaxed text-muted">256-bit encrypted. Cancel or exchange free within 30 days.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7" data-reveal style="--d:90ms">
+          <div class="flex items-end justify-between gap-3">
+            <div>
+              <h3 class="display text-[23px] leading-none">Runner reviews</h3>
+              <p class="mt-1.5 text-[10px] text-muted">Post-sweat feedback, not first-impression notes.</p>
+            </div>
+            <div class="text-right">
+              <div class="flex items-center justify-end gap-0.5" aria-label="Average rating 4.8 out of 5">
+                <i data-lucide="star" class="h-3 w-3 fill-accent text-accent"></i>
+                <i data-lucide="star" class="h-3 w-3 fill-accent text-accent"></i>
+                <i data-lucide="star" class="h-3 w-3 fill-accent text-accent"></i>
+                <i data-lucide="star" class="h-3 w-3 fill-accent text-accent"></i>
+                <i data-lucide="star" class="h-3 w-3 fill-accent text-accent"></i>
+              </div>
+              <p class="mt-1 font-mono text-[8.5px] uppercase tracking-[0.06em] text-muted">4.8 / 5 / 2,840 verified</p>
+            </div>
+          </div>
+
+          <article class="mt-3 overflow-hidden rounded-[4px] border border-panelline bg-panel p-4 text-panelink">
+            <div class="flex items-center justify-between gap-3">
+              <div class="flex items-center gap-0.5" aria-label="5 out of 5 stars">
+                <i data-lucide="star" class="h-3 w-3 fill-accent text-accent"></i>
+                <i data-lucide="star" class="h-3 w-3 fill-accent text-accent"></i>
+                <i data-lucide="star" class="h-3 w-3 fill-accent text-accent"></i>
+                <i data-lucide="star" class="h-3 w-3 fill-accent text-accent"></i>
+                <i data-lucide="star" class="h-3 w-3 fill-accent text-accent"></i>
+              </div>
+              <span class="flex items-center gap-1 font-mono text-[7.5px] uppercase tracking-[0.08em] text-panelmuted">
+                <i data-lucide="badge-check" class="h-3 w-3 text-accent"></i>
+                Verified purchase
+              </span>
+            </div>
+            <blockquote class="mt-2.5 max-w-[56ch] text-[14px] font-medium leading-[1.45]">
+              "Ran 10km in Mumbai morning humidity. Literally zero chafing and it didn't stick to my back."
+            </blockquote>
+            <div class="mt-3 flex items-center gap-2.5">
+              <span class="grid h-8 w-8 place-items-center rounded-full border border-white/15 bg-white/10 font-mono text-[9px] font-semibold text-panelink">AM</span>
+              <div>
+                <p class="text-[10.5px] font-semibold leading-tight">Aarav Menon</p>
+                <p class="mt-0.5 font-mono text-[7.5px] uppercase tracking-[0.06em] text-panelmuted">10K runner / Mumbai</p>
+              </div>
+              <span class="ml-auto hidden font-mono text-[7.5px] uppercase tracking-[0.08em] text-panelmuted sm:block">Wears M</span>
+            </div>
+          </article>
+
+          <div class="mt-2.5 grid gap-2.5 sm:grid-cols-3">
+            <article class="rounded-[4px] border border-line bg-paper p-3">
+              <div class="flex items-center gap-0.5" aria-label="5 out of 5 stars">
+                <i data-lucide="star" class="h-2.5 w-2.5 fill-accent text-accent"></i>
+                <i data-lucide="star" class="h-2.5 w-2.5 fill-accent text-accent"></i>
+                <i data-lucide="star" class="h-2.5 w-2.5 fill-accent text-accent"></i>
+                <i data-lucide="star" class="h-2.5 w-2.5 fill-accent text-accent"></i>
+                <i data-lucide="star" class="h-2.5 w-2.5 fill-accent text-accent"></i>
+              </div>
+              <blockquote class="mt-2 text-[10.5px] leading-[1.5] text-inksoft">"The split shorts stayed put through a 21K. No bounce, no riding up."</blockquote>
+              <div class="mt-2.5 flex items-center gap-2 border-t border-line pt-2">
+                <span class="grid h-6 w-6 place-items-center rounded-full border border-line bg-surface font-mono text-[8px] font-semibold">PR</span>
+                <div class="min-w-0">
+                  <p class="text-[9px] font-semibold leading-tight">Priya Raghavan</p>
+                  <p class="mt-0.5 font-mono text-[6.5px] uppercase tracking-[0.05em] text-muted">Half marathoner / Chennai</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="rounded-[4px] border border-line bg-surface/60 p-3">
+              <div class="flex items-center gap-0.5" aria-label="5 out of 5 stars">
+                <i data-lucide="star" class="h-2.5 w-2.5 fill-accent text-accent"></i>
+                <i data-lucide="star" class="h-2.5 w-2.5 fill-accent text-accent"></i>
+                <i data-lucide="star" class="h-2.5 w-2.5 fill-accent text-accent"></i>
+                <i data-lucide="star" class="h-2.5 w-2.5 fill-accent text-accent"></i>
+                <i data-lucide="star" class="h-2.5 w-2.5 fill-accent text-accent"></i>
+              </div>
+              <blockquote class="mt-2 text-[10.5px] leading-[1.5] text-inksoft">"I sweat heavily. This is the first tee that was still dry after a 5K."</blockquote>
+              <div class="mt-2.5 flex items-center gap-2 border-t border-line pt-2">
+                <span class="grid h-6 w-6 place-items-center rounded-full border border-line bg-paper font-mono text-[8px] font-semibold">RD</span>
+                <div class="min-w-0">
+                  <p class="text-[9px] font-semibold leading-tight">Rohan Dsouza</p>
+                  <p class="mt-0.5 font-mono text-[6.5px] uppercase tracking-[0.05em] text-muted">5K runner / Bengaluru</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="rounded-[4px] border border-line bg-paper p-3">
+              <div class="flex items-center gap-0.5" aria-label="5 out of 5 stars">
+                <i data-lucide="star" class="h-2.5 w-2.5 fill-accent text-accent"></i>
+                <i data-lucide="star" class="h-2.5 w-2.5 fill-accent text-accent"></i>
+                <i data-lucide="star" class="h-2.5 w-2.5 fill-accent text-accent"></i>
+                <i data-lucide="star" class="h-2.5 w-2.5 fill-accent text-accent"></i>
+                <i data-lucide="star" class="h-2.5 w-2.5 fill-accent text-accent"></i>
+              </div>
+              <blockquote class="mt-2 text-[10.5px] leading-[1.5] text-inksoft">"Fit finder sized me right the first time. No exchange, which never happens."</blockquote>
+              <div class="mt-2.5 flex items-center gap-2 border-t border-line pt-2">
+                <span class="grid h-6 w-6 place-items-center rounded-full border border-line bg-surface font-mono text-[8px] font-semibold">MI</span>
+                <div class="min-w-0">
+                  <p class="text-[9px] font-semibold leading-tight">Meera Iyer</p>
+                  <p class="mt-0.5 font-mono text-[6.5px] uppercase tracking-[0.05em] text-muted">10K runner / Kochi</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <footer class="mt-6 flex flex-col gap-3 border-t border-line pt-4 md:flex-row md:items-center md:justify-between">
+        <div class="flex items-center gap-2.5">
+          <span class="logo-mark !h-6 !w-6" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 18.5 L12 5.5 L20 18.5"/>
+              <path d="M8.4 18.5 L12 12.2 L15.6 18.5"/>
+            </svg>
+          </span>
+          <span class="logo-word !text-[16px]">AeroRun</span>
+          <span class="hidden text-[10px] text-muted sm:inline">Lightweight gear for hot, humid runs.</span>
+        </div>
+        <nav class="flex flex-wrap items-center gap-x-5 gap-y-1.5 text-[10px] text-muted" aria-label="Footer">
+          <a href="#fit-finder" class="transition-colors hover:text-ink">Size guide</a>
+          <a href="#fit-finder" class="transition-colors hover:text-ink">30-day trial</a>
+          <a href="mailto:run@aerorun.in" class="transition-colors hover:text-ink">Contact</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="transition-colors hover:text-ink">Instagram</a>
+        </nav>
+        <p class="font-mono text-[7.5px] uppercase tracking-[0.1em] text-muted">© 2026 AeroRun Sports / Bengaluru</p>
+      </footer>
+    </div>
+  </section>
+</main>
+
+<div id="toast" class="toast" role="status" aria-live="polite" aria-hidden="true">
+  <span class="toast-icon"><i data-lucide="check" class="h-3 w-3"></i></span>
+  <div class="min-w-0">
+    <p id="toastTitle" class="text-[11.5px] font-semibold leading-tight">Added to bag</p>
+    <p id="toastSub" class="mt-0.5 truncate text-[9.5px] leading-tight text-paper/60">ZoneVent Run Tee / M</p>
+  </div>
+</div>
+
+<div class="grain" aria-hidden="true"></div>
+
+<style>
+  .qty-btn {
+    display: grid;
+    place-items: center;
+    width: 22px;
+    height: 22px;
+    border: 0;
+    border-radius: 2px;
+    background: transparent;
+    color: rgb(var(--ink-soft));
+    transition: background-color .15s ease, color .15s ease;
+  }
+  .qty-btn:hover { background: rgb(var(--surface-2)); color: rgb(var(--ink)); }
+  .qty-btn:disabled { opacity: .35; cursor: not-allowed; }
+
+  .size-btn {
+    height: 38px;
+    border: 1px solid rgb(var(--line));
+    border-radius: 3px;
+    background: rgb(var(--paper));
+    color: rgb(var(--ink));
+    font-size: 12px;
+    font-weight: 600;
+    transition: background-color .18s ease, color .18s ease, border-color .18s ease;
+  }
+  .size-btn:hover { border-color: rgb(var(--ink) / .35); }
+  .size-btn[aria-pressed="true"] { background: rgb(var(--ink)); border-color: rgb(var(--ink)); color: rgb(var(--paper)); }
+
+  .view-btn {
+    height: 27px;
+    padding: 0 10px;
+    white-space: nowrap;
+    border: 0;
+    border-radius: 2px;
+    background: transparent;
+    color: rgb(var(--muted));
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    transition: background-color .18s ease, color .18s ease;
+  }
+  .view-btn:hover { color: rgb(var(--ink)); }
+  .view-btn.is-active { background: rgb(var(--ink)); color: rgb(var(--paper)); }
+
+  .detail-swatch {
+    width: 26px;
+    height: 26px;
+    border-radius: 999px;
+    border: 1px solid rgb(var(--ink) / .18);
+    box-shadow: inset 0 0 0 2px rgb(var(--paper) / .3);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .detail-swatch:hover { transform: scale(1.06); }
+  .detail-swatch.is-active { box-shadow: 0 0 0 2px rgb(var(--paper)), 0 0 0 3.5px rgb(var(--ink)); }
+
+  .bag-pop { animation: bagpop .42s cubic-bezier(.16,1,.3,1); }
+  @keyframes bagpop { 0% { transform: scale(1); } 40% { transform: scale(1.28); } 100% { transform: scale(1); } }
+
+  .pay-success {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgb(var(--success) / .35);
+    border-radius: 3px;
+    background: rgb(var(--success) / .07);
+    padding: 11px 12px;
+  }
+  .pay-success-mark {
+    display: grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    flex: none;
+    border-radius: 999px;
+    background: rgb(var(--success));
+    color: rgb(var(--paper));
+  }
+  .hotspot-hidden { display: none !important; }
+  @media (min-width: 768px) and (max-width: 1279px) {
+    .hotspot-label { width: 132px; }
+  }
+</style>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var inr = function (n) { return '\u20B9' + new Intl.NumberFormat('en-IN', { maximumFractionDigits: 0 }).format(n); };
+
+  if (window.lucide && typeof window.lucide.createIcons === 'function') {
+    window.lucide.createIcons({ attrs: { 'stroke-width': 1.75 } });
+  }
+
+  /* Theme */
+  var root = document.documentElement;
+  var themeButtons = Array.prototype.slice.call(document.querySelectorAll('.theme-toggle'));
+  function syncThemeLabel() {
+    var dark = root.getAttribute('data-theme') === 'dark';
+    themeButtons.forEach(function (btn) {
+      btn.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+    });
+  }
+  themeButtons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('aerorun-theme', next); } catch (e) {}
+      syncThemeLabel();
+      showToast(next === 'dark' ? 'Low-light mode on' : 'Daylight mode on', next === 'dark' ? 'Contrast tuned for night runs.' : 'Warm stone palette restored.');
+    });
+  });
+  syncThemeLabel();
+
+  /* Toast */
+  var toast = document.getElementById('toast');
+  var toastTitle = document.getElementById('toastTitle');
+  var toastSub = document.getElementById('toastSub');
+  var toastTimer;
+  function showToast(title, sub) {
+    if (!toast) return;
+    toastTitle.textContent = title;
+    toastSub.textContent = sub || '';
+    toast.classList.add('show');
+    toast.setAttribute('aria-hidden', 'false');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () {
+      toast.classList.remove('show');
+      toast.setAttribute('aria-hidden', 'true');
+    }, 2800);
+  }
+
+  /* Reveal */
+  var reveals = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+  var revealAll = function () { reveals.forEach(function (el) { el.classList.add('in'); }); };
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    revealAll();
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.06, rootMargin: '0px 0px -6% 0px' });
+    reveals.forEach(function (el) { io.observe(el); });
+    setTimeout(revealAll, 1600);
+  }
+
+  /* Range fill */
+  function paintRange(el) {
+    var min = Number(el.min) || 0;
+    var max = Number(el.max) || 100;
+    var pct = ((Number(el.value) - min) / (max - min)) * 100;
+    el.style.setProperty('--pct', pct.toFixed(2) + '%');
+  }
+  Array.prototype.slice.call(document.querySelectorAll('.range')).forEach(function (el) {
+    paintRange(el);
+    el.addEventListener('input', function () { paintRange(el); });
+  });
+
+  /* Fit engine */
+  var SIZES = [
+    { code: 'S', name: 'Small', lo: 86, hi: 93 },
+    { code: 'M', name: 'Medium', lo: 94, hi: 102 },
+    { code: 'L', name: 'Large', lo: 103, hi: 111 },
+    { code: 'XL', name: 'Extra Large', lo: 112, hi: 122 }
+  ];
+  var STOCK = { S: 6, M: 14, L: 9, XL: 2 };
+  var fitHeight = document.getElementById('fitHeight');
+  var fitChest = document.getElementById('fitChest');
+  var heightVal = document.getElementById('heightVal');
+  var chestVal = document.getElementById('chestVal');
+  var recName = document.getElementById('recName');
+  var recCode = document.getElementById('recCode');
+  var recMeta = document.getElementById('recMeta');
+  var recPct = document.getElementById('recPct');
+  var chafeRisk = document.getElementById('chafeRisk');
+  var airflowIndex = document.getElementById('airflowIndex');
+  var clingGauge = document.getElementById('clingGauge');
+  var gaugeLength = 326.73;
+  var clamped = function (v, lo, hi) { return Math.min(hi, Math.max(lo, v)); };
+
+  function fitProfile() {
+    var h = Number(fitHeight ? fitHeight.value : 178);
+    var chest = Number(fitChest ? fitChest.value : 100);
+    var fitEl = document.querySelector('input[name="fit"]:checked');
+    var relaxed = fitEl ? fitEl.value === 'relaxed' : false;
+    var target = chest + (relaxed ? 2 : 0);
+    var idx = 0;
+    for (var i = 0; i < SIZES.length; i++) {
+      if (target <= SIZES[i].hi) { idx = i; break; }
+      idx = SIZES.length - 1;
+    }
+    if (h >= 190 && idx < SIZES.length - 1) idx += 1;
+    var size = SIZES[idx];
+    var center = (size.lo + size.hi) / 2;
+    var dev = Math.abs(target - center);
+    var pct = clamped(Math.round(99 - dev * 0.5), 86, 98);
+    var chafe = clamped(Math.round(1 + dev * 0.35), 1, 9);
+    var airflow = clamped(9.5 - dev * 0.05 - (relaxed ? 0.15 : 0), 6, 9.9);
+    return {
+      height: h,
+      chest: chest,
+      relaxed: relaxed,
+      size: size,
+      pct: pct,
+      chafe: chafe < 10 ? '0' + chafe : String(chafe),
+      airflow: airflow.toFixed(1)
+    };
+  }
+
+  var currentFit = null;
+  function renderFit() {
+    if (!fitHeight || !fitChest) return;
+    var p = fitProfile();
+    currentFit = p;
+    if (heightVal) heightVal.textContent = String(p.height);
+    if (chestVal) chestVal.textContent = String(p.chest);
+    if (recName) recName.textContent = p.size.name;
+    if (recCode) recCode.textContent = p.size.code;
+    if (recMeta) recMeta.textContent = 'Cut for ' + p.height + ' cm / Chest ' + p.size.lo + '-' + p.size.hi + ' cm';
+    if (recPct) recPct.textContent = p.pct + '%';
+    if (chafeRisk) chafeRisk.textContent = p.chafe + '%';
+    if (airflowIndex) airflowIndex.textContent = p.airflow;
+    if (clingGauge) clingGauge.setAttribute('stroke-dashoffset', (gaugeLength * (1 - p.pct / 100)).toFixed(2));
+  }
+
+  [fitHeight, fitChest].forEach(function (el) {
+    if (!el) return;
+    el.addEventListener('input', renderFit);
+    el.addEventListener('change', renderFit);
+  });
+  Array.prototype.slice.call(document.querySelectorAll('input[name="fit"]')).forEach(function (el) {
+    el.addEventListener('change', renderFit);
+  });
+  renderFit();
+
+  /* Detail size selection */
+  var selectedSize = document.getElementById('selectedSize');
+  var inventoryLine = document.getElementById('inventoryLine');
+  var detailSizeButtons = Array.prototype.slice.call(document.querySelectorAll('.size-btn[data-size]'));
+  function setDetailSize(code) {
+    if (selectedSize) selectedSize.textContent = code;
+    detailSizeButtons.forEach(function (btn) {
+      btn.setAttribute('aria-pressed', btn.dataset.size === code ? 'true' : 'false');
+    });
+    if (inventoryLine) {
+      var count = STOCK[code];
+      if (count === undefined) {
+        inventoryLine.textContent = 'Size ' + code + ': made to order, ships in 6 days.';
+      } else if (count <= 3) {
+        inventoryLine.textContent = 'Only ' + count + ' left in ' + code + '. Ships today from Bengaluru.';
+      } else {
+        inventoryLine.textContent = 'Size ' + code + ': ' + count + ' units ready to ship from Bengaluru.';
+      }
+    }
+  }
+  detailSizeButtons.forEach(function (btn) {
+    btn.addEventListener('click', function () { setDetailSize(btn.dataset.size); });
+  });
+  setDetailSize('M');
+
+  /* Fit lock */
+  var lockFit = document.getElementById('lockFit');
+  if (lockFit) {
+    lockFit.addEventListener('click', function () {
+      var p = currentFit || fitProfile();
+      setDetailSize(p.size.code);
+      showToast('Size ' + p.size.code + ' locked', p.size.name + ' / ' + p.pct + '% predicted cling resistance. Applied to the Run Tee.');
+      var target = document.getElementById('technology');
+      if (target) target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+    });
+  }
+
+  /* Accordions */
+  Array.prototype.slice.call(document.querySelectorAll('.acc')).forEach(function (acc) {
+    var trigger = acc.querySelector('.acc-trigger');
+    if (!trigger) return;
+    trigger.addEventListener('click', function () {
+      var open = acc.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+
+  /* Garment view toggle */
+  var mainUse = document.getElementById('mainGarmentUse');
+  var viewButtons = Array.prototype.slice.call(document.querySelectorAll('[data-view]'));
+  var backOnly = Array.prototype.slice.call(document.querySelectorAll('[data-only="back"]'));
+  viewButtons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var view = btn.dataset.view;
+      viewButtons.forEach(function (b) {
+        var active = b === btn;
+        b.classList.toggle('is-active', active);
+        b.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+      if (mainUse) mainUse.setAttribute('href', view === 'front' ? '#g-tee' : '#g-tee-back');
+      backOnly.forEach(function (el) { el.classList.toggle('hotspot-hidden', view === 'front'); });
+    });
+  });
+
+  /* Detail swatches */
+  var detailVisual = document.getElementById('detailVisual');
+  var detailColorName = document.getElementById('detailColorName');
+  var detailSwatches = Array.prototype.slice.call(document.querySelectorAll('.js-detail-swatch'));
+  var activeDetailColor = 'Monsoon Slate';
+  function applyDetailColor(btn) {
+    if (!btn) return;
+    activeDetailColor = btn.dataset.name;
+    if (detailVisual) {
+      detailVisual.style.setProperty('--g1', btn.dataset.g1);
+      detailVisual.style.setProperty('--g2', btn.dataset.g2);
+      detailVisual.style.setProperty('--g3', btn.dataset.g3);
+      detailVisual.style.setProperty('--g4', btn.dataset.g4);
+    }
+    if (detailColorName) detailColorName.textContent = activeDetailColor;
+    detailSwatches.forEach(function (b) {
+      var active = b === btn;
+      b.classList.toggle('is-active', active);
+      b.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+  }
+  detailSwatches.forEach(function (btn) {
+    btn.addEventListener('click', function () { applyDetailColor(btn); });
+  });
+
+  /* Detail add to bag */
+  var detailAdd = document.getElementById('detailAdd');
+  if (detailAdd) {
+    detailAdd.addEventListener('click', function () {
+      bagExtra += 1;
+      syncBag();
+      popBag();
+      var size = selectedSize ? selectedSize.textContent : 'M';
+      showToast('Added to bag', 'ZoneVent Run Tee / ' + activeDetailColor + ' / ' + size);
+      detailAdd.disabled = true;
+      setTimeout(function () { detailAdd.disabled = false; }, 900);
+    });
+  }
+
+  /* Product card swatches */
+  Array.prototype.slice.call(document.querySelectorAll('.js-product')).forEach(function (card) {
+    var svg = card.querySelector('.garment-svg');
+    var colorName = card.querySelector('.js-color-name');
+    var swatches = Array.prototype.slice.call(card.querySelectorAll('.js-swatch'));
+    var activeColor = swatches.length ? swatches[0].dataset.name : '';
+    swatches.forEach(function (sw) {
+      sw.addEventListener('click', function () {
+        activeColor = sw.dataset.name;
+        if (svg) {
+          svg.style.setProperty('--g1', sw.dataset.g1);
+          svg.style.setProperty('--g2', sw.dataset.g2);
+          svg.style.setProperty('--g3', sw.dataset.g3);
+          svg.style.setProperty('--g4', sw.dataset.g4);
+        }
+        if (colorName) colorName.textContent = activeColor;
+        swatches.forEach(function (b) {
+          var active = b === sw;
+          b.classList.toggle('is-active', active);
+          b.setAttribute('aria-pressed', active ? 'true' : 'false');
+        });
+      });
+    });
+
+    var wish = card.querySelector('.js-wish');
+    if (wish) {
+      wish.addEventListener('click', function () {
+        var saved = wish.classList.toggle('is-wished');
+        wish.setAttribute('aria-pressed', saved ? 'true' : 'false');
+        wish.setAttribute('aria-label', (saved ? 'Remove ' : 'Save ') + card.dataset.name + (saved ? ' from wishlist' : ''));
+        showToast(saved ? 'Saved to wishlist' : 'Removed from wishlist', card.dataset.name + ' / ' + activeColor);
+      });
+    }
+
+    var add = card.querySelector('.js-add');
+    var addLabel = add ? add.querySelector('span') : null;
+    if (add) {
+      add.addEventListener('click', function () {
+        bagExtra += 1;
+        syncBag();
+        popBag();
+        showToast('Added to bag', card.dataset.name + ' / ' + activeColor + ' / M');
+        if (addLabel) {
+          var original = addLabel.textContent;
+          addLabel.textContent = 'Added';
+          add.disabled = true;
+          setTimeout(function () {
+            addLabel.textContent = original;
+            add.disabled = false;
+          }, 1100);
+        }
+      });
+    }
+  });
+
+  /* Catalog filters + search */
+  var state = { filter: 'all', query: '' };
+  var products = Array.prototype.slice.call(document.querySelectorAll('.js-product'));
+  var productCount = document.getElementById('productCount');
+  var emptyState = document.getElementById('emptyState');
+  var emptyTitle = document.getElementById('emptyTitle');
+  var emptyDesc = document.getElementById('emptyDesc');
+  var emptyTitleDefault = emptyTitle ? emptyTitle.textContent : '';
+  var emptyDescDefault = emptyDesc ? emptyDesc.textContent : '';
+  var searchInput = document.getElementById('searchInput');
+
+  function applyFilters() {
+    var query = state.query;
+    var visible = 0;
+    products.forEach(function (card) {
+      var categoryOk = state.filter === 'all' || card.dataset.category === state.filter;
+      var name = (card.dataset.name || '').toLowerCase();
+      var category = (card.dataset.category || '').toLowerCase();
+      var queryOk = !query || name.indexOf(query) > -1 || category.indexOf(query) > -1;
+      var show = categoryOk && queryOk;
+      card.classList.toggle('hidden', !show);
+      if (show) {
+        card.classList.add('in');
+        visible += 1;
+      }
+    });
+    if (productCount) productCount.textContent = visible + (visible === 1 ? ' piece' : ' pieces');
+    if (emptyState) {
+      emptyState.classList.toggle('hidden', visible > 0);
+      if (visible === 0 && emptyTitle && emptyDesc) {
+        if (query) {
+          emptyTitle.textContent = 'Nothing matched that search.';
+          emptyDesc.textContent = 'Try "tee", "shorts", "singlet", "tops" or "bottoms". The full ZoneVent range is one tap away.';
+        } else {
+          emptyTitle.textContent = emptyTitleDefault;
+          emptyDesc.textContent = emptyDescDefault;
+        }
+        var notify = document.getElementById('notifyBtn');
+        if (notify) notify.classList.toggle('hidden', !!query);
+      }
+    }
+    return visible;
+  }
+
+  Array.prototype.slice.call(document.querySelectorAll('.filter-pill[data-filter]')).forEach(function (pill) {
+    pill.addEventListener('click', function () {
+      state.filter = pill.dataset.filter;
+      Array.prototype.slice.call(document.querySelectorAll('.filter-pill[data-filter]')).forEach(function (b) {
+        b.setAttribute('aria-pressed', b === pill ? 'true' : 'false');
+      });
+      var visible = applyFilters();
+      if (pill.dataset.filter === 'accessories') {
+        showToast('Accessories drop', 'Socks, caps and sleeves land 12 November.');
+      } else if (visible === 0 && state.query) {
+        showToast('No matches', 'No ' + pill.textContent.trim() + ' match "' + state.query + '".');
+      }
+    });
+  });
+
+  function runSearch(raw) {
+    state.query = (raw || '').trim().toLowerCase();
+    var visible = applyFilters();
+    var hero = document.getElementById('shop');
+    if (hero) hero.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+    if (state.query) {
+      showToast(visible + (visible === 1 ? ' result' : ' results'), visible ? 'Showing matches for "' + raw.trim() + '".' : 'No matches for "' + raw.trim() + '". Try "tee".');
+    }
+  }
+
+  var searchForm = document.getElementById('searchForm');
+  if (searchForm && searchInput) {
+    searchForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      runSearch(searchInput.value);
+    });
+    var clearSearch = function () {
+      if (!searchInput.value.trim()) {
+        state.query = '';
+        applyFilters();
+      }
+    };
+    searchInput.addEventListener('input', clearSearch);
+    searchInput.addEventListener('search', clearSearch);
+  }
+
+  var mobileSearchForm = document.getElementById('mobileSearchForm');
+  var mobileSearchInput = document.getElementById('mobileSearchInput');
+  if (mobileSearchForm && mobileSearchInput) {
+    mobileSearchForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      closeMenu();
+      if (searchInput) searchInput.value = mobileSearchInput.value;
+      runSearch(mobileSearchInput.value);
+    });
+  }
+
+  /* Mobile menu */
+  var menuBtn = document.getElementById('menuBtn');
+  var mobileMenu = document.getElementById('mobileMenu');
+  function openMenu() {
+    if (!mobileMenu || !menuBtn) return;
+    mobileMenu.classList.remove('hidden');
+    menuBtn.classList.add('is-open');
+    menuBtn.setAttribute('aria-expanded', 'true');
+    menuBtn.setAttribute('aria-label', 'Close menu');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    if (!mobileMenu || !menuBtn) return;
+    mobileMenu.classList.add('hidden');
+    menuBtn.classList.remove('is-open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    menuBtn.setAttribute('aria-label', 'Open menu');
+    document.body.style.overflow = '';
+  }
+  if (menuBtn) {
+    menuBtn.addEventListener('click', function () {
+      if (mobileMenu.classList.contains('hidden')) openMenu(); else closeMenu();
+    });
+  }
+  Array.prototype.slice.call(document.querySelectorAll('.mobile-link')).forEach(function (link) {
+    link.addEventListener('click', closeMenu);
+  });
+  window.addEventListener('resize', function () {
+    if (window.innerWidth >= 1024) closeMenu();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeMenu();
+    if (e.key === '/' && searchInput) {
+      var tag = (document.activeElement && document.activeElement.tagName) || '';
+      if (tag !== 'INPUT' && tag !== 'TEXTAREA' && tag !== 'SELECT') {
+        e.preventDefault();
+        searchInput.focus();
+      }
+    }
+  });
+
+  /* Bag */
+  var bagCount = document.getElementById('bagCount');
+  var bagBtn = document.getElementById('bagBtn');
+  var bagExtra = 0;
+  var qtyRows = Array.prototype.slice.call(document.querySelectorAll('#orderSummary [data-unit]'));
+  function rowQty(row) { return Number(row.querySelector('.js-qty-val').textContent) || 1; }
+  function totalQty() {
+    return qtyRows.reduce(function (sum, row) { return sum + rowQty(row); }, 0);
+  }
+  function syncBag() {
+    if (!bagCount) return;
+    var count = totalQty() + bagExtra;
+    bagCount.textContent = String(count);
+    if (bagBtn) bagBtn.setAttribute('aria-label', 'Open bag, ' + count + (count === 1 ? ' item' : ' items'));
+  }
+  function popBag() {
+    if (!bagCount) return;
+    bagCount.classList.remove('bag-pop');
+    void bagCount.offsetWidth;
+    bagCount.classList.add('bag-pop');
+  }
+  if (bagBtn) {
+    bagBtn.addEventListener('click', function () {
+      var target = document.getElementById('reviews');
+      if (target) target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+    });
+  }
+
+  /* Cart totals + coupon */
+  var cartSubtotal = document.getElementById('cartSubtotal');
+  var cartTotal = document.getElementById('cartTotal');
+  var payAmount = document.getElementById('payAmount');
+  var couponRow = document.getElementById('couponRow');
+  var applyCouponRow = document.getElementById('applyCouponRow');
+  var couponActive = true;
+
+  function recalc() {
+    var subtotal = 0;
+    qtyRows.forEach(function (row) {
+      var unit = Number(row.dataset.unit) || 0;
+      var qty = rowQty(row);
+      var price = unit * qty;
+      var linePrice = row.querySelector('.js-line-price');
+      if (linePrice) linePrice.textContent = inr(price);
+      subtotal += price;
+    });
+    var discount = couponActive ? 150 : 0;
+    var total = Math.max(0, subtotal - discount);
+    if (cartSubtotal) cartSubtotal.textContent = inr(subtotal);
+    if (cartTotal) cartTotal.textContent = inr(total);
+    if (payAmount) payAmount.textContent = inr(total);
+    syncBag();
+    return { subtotal: subtotal, discount: discount, total: total };
+  }
+
+  qtyRows.forEach(function (row) {
+    Array.prototype.slice.call(row.querySelectorAll('.js-qty')).forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var valEl = row.querySelector('.js-qty-val');
+        var next = clamped(rowQty(row) + Number(btn.dataset.delta), 1, 9);
+        valEl.textContent = String(next);
+        recalc();
+      });
+    });
+  });
+
+  if (couponRow) {
+    var removeCoupon = document.getElementById('removeCoupon');
+    var applyCoupon = document.getElementById('applyCoupon');
+    if (removeCoupon) {
+      removeCoupon.addEventListener('click', function () {
+        couponActive = false;
+        couponRow.classList.add('hidden');
+        if (applyCouponRow) {
+          applyCouponRow.classList.remove('hidden');
+          applyCouponRow.classList.add('flex');
+        }
+        var totals = recalc();
+        showToast('Coupon removed', 'Total is now ' + inr(totals.total) + '. RUNINDIA can be reapplied any time.');
+      });
+    }
+    if (applyCoupon) {
+      applyCoupon.addEventListener('click', function () {
+        var subtotal = qtyRows.reduce(function (sum, row) { return sum + Number(row.dataset.unit) * rowQty(row); }, 0);
+        if (subtotal < 1500) {
+          showToast('Minimum not met', 'RUNINDIA needs a subtotal of ' + inr(1500) + ' or more.');
+          return;
+        }
+        couponActive = true;
+        if (applyCouponRow) {
+          applyCouponRow.classList.add('hidden');
+          applyCouponRow.classList.remove('flex');
+        }
+        couponRow.classList.remove('hidden');
+        var totals = recalc();
+        showToast('RUNINDIA applied', 'You saved ' + inr(150) + '. Total ' + inr(totals.total) + '.');
+      });
+    }
+  }
+
+  recalc();
+
+  /* UPI payment */
+  var paymentArea = document.getElementById('paymentArea');
+  Array.prototype.slice.call(document.querySelectorAll('.js-pay')).forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      if (!paymentArea) return;
+      var method = btn.dataset.method || 'UPI';
+      var total = cartTotal ? cartTotal.textContent : inr(2648);
+      Array.prototype.slice.call(paymentArea.querySelectorAll('.js-pay')).forEach(function (b) { b.disabled = true; });
+      paymentArea.innerHTML = '<div class="flex items-center justify-center gap-2.5 py-3"><span class="spinner"></span><span class="text-[11px] text-muted">Opening ' + method + ' for ' + total + '</span></div>';
+      setTimeout(function () {
+        paymentArea.innerHTML =
+          '<div class="pay-success">' +
+            '<span class="pay-success-mark">' +
+              '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5 L10 17.5 L19 7"/></svg>' +
+            '</span>' +
+            '<div class="min-w-0">' +
+              '<p class="text-[11.5px] font-semibold leading-tight">Payment successful</p>' +
+              '<p class="mt-0.5 text-[9px] leading-tight text-muted">Order AR-2841 / ' + method + ' / ' + total + '</p>' +
+            '</div>' +
+          '</div>';
+        if (bagCount) bagCount.textContent = '0';
+        showToast('Order confirmed', 'AR-2841 paid via ' + method + '. Shipping from Bengaluru today.');
+      }, 1600);
+    });
+  });
+
+  /* Accessories notify */
+  var notifyBtn = document.getElementById('notifyBtn');
+  if (notifyBtn) {
+    notifyBtn.addEventListener('click', function () {
+      notifyBtn.disabled = true;
+      notifyBtn.innerHTML = '<span>On the list</span>';
+      showToast('You are on the list', 'Accessories drop / 12 November. We will email you first.');
+    });
+  }
+})();
+</script>
+</body>
+</html>
